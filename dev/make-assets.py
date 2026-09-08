@@ -88,8 +88,20 @@ def banner() -> str:
         + envelope(95, 120, 1.0)
         + text(172, 132, "Mail Archiver", TEXT, 34, "700")
         + text(172, 162, "for Home Assistant", HA, 20, "600")
-        + text(72, 224, "Every archived mailbox as a device: messages, archive size, last backup,", MUTED, 17)
-        + text(72, 250, "a running flag and a button that starts the next backup.", MUTED, 17)
+        + text(
+            72,
+            224,
+            "Every archived mailbox as a device: messages, archive size, last backup,",
+            MUTED,
+            17,
+        )
+        + text(
+            72,
+            250,
+            "a running flag and a button that starts the next backup.",
+            MUTED,
+            17,
+        )
         + card(72, 288, 190, 42, 21, PANEL, BORDER)
         + text(96, 315, "HACS · local polling", HA, 14, "600")
         + card(278, 288, 210, 42, 21, PANEL, BORDER)
@@ -104,7 +116,13 @@ def banner() -> str:
 def architecture() -> str:
     body = (
         text(60, 62, "How it works", TEXT, 22, "700")
-        + text(60, 92, "Home Assistant asks your Mail Archiver every 30 seconds. Nothing leaves your network.", MUTED, 15)
+        + text(
+            60,
+            92,
+            "Home Assistant asks your Mail Archiver every 30 seconds. Nothing leaves your network.",
+            MUTED,
+            15,
+        )
         + card(60, 140, 300, 200)
         + text(88, 180, "Mail Archiver", TEXT, 17, "600")
         + text(88, 206, "Desktop app or container", MUTED, 13)
@@ -127,7 +145,13 @@ def architecture() -> str:
         + house(986, 176, 2.4, HA, 2.6)
         + text(1020, 280, "Home Assistant", TEXT, 16, "600", anchor="middle")
         + text(1020, 304, "Entities, automations, card", MUTED, 13, anchor="middle")
-        + text(60, 400, "No cloud, no broker, no account: the integration only talks to the address you enter.", MUTED, 14)
+        + text(
+            60,
+            400,
+            "No cloud, no broker, no account: the integration only talks to the address you enter.",
+            MUTED,
+            14,
+        )
     )
     return frame(1200, 460, "How the integration talks to Mail Archiver", body)
 
@@ -144,7 +168,13 @@ def entities() -> str:
     ]
     body = (
         text(60, 62, "Entities you get", TEXT, 22, "700")
-        + text(60, 92, "One device per mailbox, plus one for the instance itself.", MUTED, 15)
+        + text(
+            60,
+            92,
+            "One device per mailbox, plus one for the instance itself.",
+            MUTED,
+            15,
+        )
         + card(60, 130, 1080, 62, 14, "#101a24")
         + text(88, 168, "Domain", MUTED, 12, "600")
         + text(240, 168, "Entity", MUTED, 12, "600")
@@ -162,14 +192,26 @@ def entities() -> str:
     body += card(60, y + 20, 1080, 74)
     body += house(92, y + 40, 1.2, HA, 2.2)
     body += text(140, y + 52, "Instance device", TEXT, 15, "600")
-    body += text(140, y + 74, "Total archive size and the next scheduled backup of the container.", MUTED, 13)
+    body += text(
+        140,
+        y + 74,
+        "Total archive size and the next scheduled backup of the container.",
+        MUTED,
+        13,
+    )
     return frame(1200, y + 130, "The entities the integration creates", body)
 
 
 def dashboard() -> str:
     body = (
         text(60, 62, "The card", TEXT, 22, "700")
-        + text(60, 92, "Every mailbox with its numbers and a button, in one card.", MUTED, 15)
+        + text(
+            60,
+            92,
+            "Every mailbox with its numbers and a button, in one card.",
+            MUTED,
+            15,
+        )
         + card(60, 130, 620, 300, 14)
         + envelope(92, 158, 0.8, HA, 2)
         + text(136, 178, "Mail Archiver", TEXT, 17, "500")
@@ -196,7 +238,7 @@ def dashboard() -> str:
         + text(752, 262, "condition: template", MUTED, 13, family=MONO)
         + text(752, 286, "  older than 26 hours", MUTED, 12, family=MONO)
         + text(752, 316, "action: notify.mobile_app", VIOLET, 13, family=MONO)
-        + text(752, 348, "\"The mail backup is overdue.\"", MUTED, 12, family=MONO)
+        + text(752, 348, '"The mail backup is overdue."', MUTED, 12, family=MONO)
         + text(752, 392, "Every value is a normal entity, so", MUTED, 13)
         + text(752, 412, "history and automations just work.", MUTED, 13)
     )
@@ -205,10 +247,18 @@ def dashboard() -> str:
 
 def install() -> str:
     steps = [
-        ("1", "HACS", "Add this repository as a custom repository, category Integration."),
+        (
+            "1",
+            "HACS",
+            "Add this repository as a custom repository, category Integration.",
+        ),
         ("2", "Install", "Install “Mail Archiver” and restart Home Assistant."),
         ("3", "Add", "Settings, Devices & services, Add integration, Mail Archiver."),
-        ("4", "Connect", "Enter host, port 8484 and the password of the web interface."),
+        (
+            "4",
+            "Connect",
+            "Enter host, port 8484 and the password of the web interface.",
+        ),
     ]
     body = text(60, 62, "Installation", TEXT, 22, "700")
     x = 60
@@ -239,7 +289,9 @@ def social() -> str:
         + envelope(126, 186, 1.3)
         + text(224, 200, "Mail Archiver", TEXT, 46, "700")
         + text(224, 244, "for Home Assistant", HA, 28, "600")
-        + text(96, 330, "Your mail backup as devices, sensors and a button —", MUTED, 22)
+        + text(
+            96, 330, "Your mail backup as devices, sensors and a button —", MUTED, 22
+        )
         + text(96, 366, "with a Lovelace card, in English and German.", MUTED, 22)
         + card(96, 420, 232, 52, 26, PANEL, BORDER)
         + text(212, 453, "HACS ready", HA, 17, "600", anchor="middle")
