@@ -1,8 +1,16 @@
 {
   "domain": "mail_archiver",
   "name": "Mail Archiver",
-  "codeowners": ["@sphings79"],
+  "after_dependencies": [
+    "lovelace"
+  ],
+  "codeowners": [
+    "@sphings79"
+  ],
   "config_flow": true,
+  "dependencies": [
+    "http"
+  ],
   "documentation": "https://github.com/sphings79/mail-archiver-home-assistant",
   "integration_type": "service",
   "iot_class": "local_polling",
