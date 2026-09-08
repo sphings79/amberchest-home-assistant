@@ -1,0 +1,60 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mail Archiver",
+        "description": "Enter the address of your Mail Archiver instance. The password is the one that protects its web interface; leave it empty if it does not ask for one.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "password": "Interface password",
+          "ssl": "Use HTTPS",
+          "verify_ssl": "Verify the certificate"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Mail Archiver",
+        "description": "Mail Archiver refused the stored password. Enter it again.",
+        "data": {
+          "password": "Interface password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "No answer from that address.",
+      "invalid_auth": "The password was refused.",
+      "password_required": "This instance is protected by a password.",
+      "not_initialized": "Mail Archiver has not been set up yet. Open its interface first and choose a master password.",
+      "locked": "Mail Archiver is locked. Unlock it with the master password, then try again."
+    },
+    "abort": {
+      "already_configured": "This instance is already set up.",
+      "reauth_successful": "Mail Archiver is connected again."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "messages": { "name": "Messages" },
+      "archive_size": { "name": "Archive size" },
+      "folders": { "name": "Folders" },
+      "last_backup": { "name": "Last backup" },
+      "total_size": { "name": "Archive size" },
+      "next_run": { "name": "Next scheduled backup" }
+    },
+    "binary_sensor": {
+      "backup_running": { "name": "Backup running" }
+    },
+    "button": {
+      "backup_now": { "name": "Back up now" },
+      "cancel_backup": { "name": "Cancel backup" }
+    }
+  },
+  "exceptions": {
+    "backup_failed": {
+      "message": "The backup could not be started: {error}"
+    },
+    "cancel_failed": {
+      "message": "The backup could not be cancelled: {error}"
+    }
+  }
+}

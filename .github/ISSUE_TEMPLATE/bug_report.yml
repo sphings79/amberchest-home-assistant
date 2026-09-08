@@ -1,0 +1,37 @@
+name: Bug report
+description: Something does not work as it should
+labels: ["bug"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Integration version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: input
+    id: ha
+    attributes:
+      label: Home Assistant version
+      placeholder: "2026.8.3"
+    validations:
+      required: true
+  - type: input
+    id: server
+    attributes:
+      label: Mail Archiver version
+      placeholder: "1.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log entries
+      description: Settings, System, Logs - anything mentioning mail_archiver
+      render: text

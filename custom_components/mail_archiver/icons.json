@@ -1,0 +1,16 @@
+{
+  "entity": {
+    "sensor": {
+      "messages": { "default": "mdi:email-multiple" },
+      "archive_size": { "default": "mdi:database" },
+      "folders": { "default": "mdi:folder-multiple" },
+      "last_backup": { "default": "mdi:backup-restore" },
+      "total_size": { "default": "mdi:database" },
+      "next_run": { "default": "mdi:calendar-clock" }
+    },
+    "button": {
+      "backup_now": { "default": "mdi:cloud-download" },
+      "cancel_backup": { "default": "mdi:stop-circle-outline" }
+    }
+  }
+}

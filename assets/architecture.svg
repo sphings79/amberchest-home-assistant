@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" width="1200" height="460" role="img" aria-label="How the integration talks to Mail Archiver">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#41BDF5"/>
+      <stop offset="1" stop-color="#7C7CF5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="460" rx="16" fill="#0f1720"/>
+  <g font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <text x="60" y="62" fill="#e6edf3" font-size="22" font-weight="700">How it works</text>
+    <text x="60" y="92" fill="#9fb0c0" font-size="15">Home Assistant asks your Mail Archiver every 30 seconds. Nothing leaves your network.</text>
+    <rect x="60" y="140" width="300" height="200" rx="14" fill="#16202b" stroke="#28394a"/>
+    <text x="88" y="180" fill="#e6edf3" font-size="17" font-weight="600">Mail Archiver</text>
+    <text x="88" y="206" fill="#9fb0c0" font-size="13">Desktop app or container</text>
+    <text x="88" y="244" fill="#41BDF5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">GET  /api/accounts</text>
+    <text x="88" y="268" fill="#41BDF5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">GET  /api/schedule</text>
+    <text x="88" y="292" fill="#7C7CF5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">POST /api/…/sync</text>
+    <text x="88" y="320" fill="#9fb0c0" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">port 8484</text>
+    <path d="M372 240h96" stroke="#41BDF5" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+    <path d="M462 234l10 6-10 6z" fill="#41BDF5"/>
+    <text x="420" y="226" fill="#9fb0c0" font-size="12" text-anchor="middle">HTTP</text>
+    <rect x="480" y="140" width="300" height="200" rx="14" fill="#16202b" stroke="#28394a"/>
+    <text x="508" y="180" fill="#e6edf3" font-size="17" font-weight="600">This integration</text>
+    <text x="508" y="206" fill="#9fb0c0" font-size="13">One coordinator per instance</text>
+    <text x="508" y="244" fill="#9fb0c0" font-size="13">· a device per mailbox</text>
+    <text x="508" y="268" fill="#9fb0c0" font-size="13">· sensors, binary sensor, buttons</text>
+    <text x="508" y="292" fill="#9fb0c0" font-size="13">· re-login when the session drops</text>
+    <path d="M792 240h96" stroke="#7C7CF5" stroke-width="2.5" fill="none"/>
+    <path d="M882 234l10 6-10 6z" fill="#7C7CF5"/>
+    <rect x="900" y="140" width="240" height="200" rx="14" fill="#16202b" stroke="#28394a"/>
+    <g stroke="#41BDF5" stroke-width="2.6" fill="none" stroke-linejoin="round">
+      <path d="M986 209.6 1019.6 176 1053.2 209.6"/>
+      <path d="M995.408 206.24v36.96000000000001h48.384v-36.96000000000001"/>
+      <path d="M1007.504 224.38400000000001a14.784 14.784 0 0 1 24.192 0" stroke-linecap="round"/>
+    </g>
+    <text x="1020" y="280" fill="#e6edf3" font-size="16" font-weight="600" text-anchor="middle">Home Assistant</text>
+    <text x="1020" y="304" fill="#9fb0c0" font-size="13" text-anchor="middle">Entities, automations, card</text>
+    <text x="60" y="400" fill="#9fb0c0" font-size="14">No cloud, no broker, no account: the integration only talks to the address you enter.</text>
+  </g>
+</svg>

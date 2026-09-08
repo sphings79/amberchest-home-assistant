@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" width="1200" height="480" role="img" aria-label="The Lovelace card and an automation example">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#41BDF5"/>
+      <stop offset="1" stop-color="#7C7CF5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="480" rx="16" fill="#0f1720"/>
+  <g font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <text x="60" y="62" fill="#e6edf3" font-size="22" font-weight="700">The card</text>
+    <text x="60" y="92" fill="#9fb0c0" font-size="15">Every mailbox with its numbers and a button, in one card.</text>
+    <rect x="60" y="130" width="620" height="300" rx="14" fill="#16202b" stroke="#28394a"/>
+    <g stroke="#41BDF5" stroke-width="2" fill="none" stroke-linejoin="round">
+      <rect x="92" y="158" width="20.8" height="15.2" rx="2.4"/>
+      <path d="M92 161.2 102.4 170.0 112.8 161.2"/>
+    </g>
+    <text x="136" y="178" fill="#e6edf3" font-size="17" font-weight="500">Mail Archiver</text>
+    <text x="650" y="168" fill="#9fb0c0" font-size="13" text-anchor="end">Archive: 1.84 GB</text>
+    <text x="650" y="190" fill="#9fb0c0" font-size="13" text-anchor="end">Next run: in 6 hours</text>
+    <line x1="60" y1="206" x2="680" y2="206" stroke="#28394a"/>
+    <text x="92" y="240" fill="#e6edf3" font-size="15">Privat</text>
+    <text x="92" y="262" fill="#9fb0c0" font-size="12">Last backup: 3 hours ago</text>
+    <text x="470" y="240" fill="#e6edf3" font-size="15" font-weight="500" text-anchor="end">12,480</text>
+    <text x="470" y="262" fill="#9fb0c0" font-size="12" text-anchor="end">612 MB</text>
+    <rect x="496" y="226" width="152" height="34" rx="17" fill="none" stroke="#28394a"/>
+    <text x="572" y="248" fill="#41BDF5" font-size="13" text-anchor="middle">Back up now</text>
+    <line x1="60" y1="286" x2="680" y2="286" stroke="#28394a"/>
+    <text x="92" y="320" fill="#e6edf3" font-size="15">Arbeit</text>
+    <text x="92" y="342" fill="#3ddc97" font-size="12">backing up · downloading</text>
+    <text x="470" y="320" fill="#e6edf3" font-size="15" font-weight="500" text-anchor="end">35,733</text>
+    <text x="470" y="342" fill="#9fb0c0" font-size="12" text-anchor="end">1.24 GB</text>
+    <rect x="496" y="306" width="152" height="34" rx="17" fill="none" stroke="#28394a"/>
+    <text x="572" y="328" fill="#9fb0c0" font-size="13" text-anchor="middle">Back up now</text>
+    <rect x="720" y="130" width="420" height="300" rx="14" fill="#16202b" stroke="#28394a"/>
+    <text x="752" y="172" fill="#e6edf3" font-size="16" font-weight="600">Automation example</text>
+    <text x="752" y="208" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">trigger: state</text>
+    <text x="752" y="232" fill="#41BDF5" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">  entity_id: sensor.privat_last_backup</text>
+    <text x="752" y="262" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">condition: template</text>
+    <text x="752" y="286" fill="#9fb0c0" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">  older than 26 hours</text>
+    <text x="752" y="316" fill="#7C7CF5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">action: notify.mobile_app</text>
+    <text x="752" y="348" fill="#9fb0c0" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">"The mail backup is overdue."</text>
+    <text x="752" y="392" fill="#9fb0c0" font-size="13">Every value is a normal entity, so</text>
+    <text x="752" y="412" fill="#9fb0c0" font-size="13">history and automations just work.</text>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 714" width="1200" height="714" role="img" aria-label="The entities the integration creates">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#41BDF5"/>
+      <stop offset="1" stop-color="#7C7CF5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="714" rx="16" fill="#0f1720"/>
+  <g font-family="ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <text x="60" y="62" fill="#e6edf3" font-size="22" font-weight="700">Entities you get</text>
+    <text x="60" y="92" fill="#9fb0c0" font-size="15">One device per mailbox, plus one for the instance itself.</text>
+    <rect x="60" y="130" width="1080" height="62" rx="14" fill="#101a24" stroke="#28394a"/>
+    <text x="88" y="168" fill="#9fb0c0" font-size="12" font-weight="600">Domain</text>
+    <text x="240" y="168" fill="#9fb0c0" font-size="12" font-weight="600">Entity</text>
+    <text x="560" y="168" fill="#9fb0c0" font-size="12" font-weight="600">Name</text>
+    <text x="980" y="168" fill="#9fb0c0" font-size="12" font-weight="600">Example</text>
+    <rect x="60" y="192" width="1080" height="56" rx="0" fill="#16202b" stroke="none"/>
+    <text x="88" y="227" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">sensor</text>
+    <text x="240" y="227" fill="#41BDF5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">messages</text>
+    <text x="560" y="227" fill="#e6edf3" font-size="14">Messages</text>
+    <text x="980" y="227" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">12480</text>
+    <rect x="60" y="248" width="1080" height="56" rx="0" fill="#141d27" stroke="none"/>
+    <text x="88" y="283" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">sensor</text>
+    <text x="240" y="283" fill="#41BDF5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">archive_size</text>
+    <text x="560" y="283" fill="#e6edf3" font-size="14">Archive size</text>
+    <text x="980" y="283" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">1.84 GB</text>
+    <rect x="60" y="304" width="1080" height="56" rx="0" fill="#16202b" stroke="none"/>
+    <text x="88" y="339" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">sensor</text>
+    <text x="240" y="339" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">folders</text>
+    <text x="560" y="339" fill="#e6edf3" font-size="14">Folders</text>
+    <text x="980" y="339" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">37</text>
+    <rect x="60" y="360" width="1080" height="56" rx="0" fill="#141d27" stroke="none"/>
+    <text x="88" y="395" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">sensor</text>
+    <text x="240" y="395" fill="#41BDF5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">last_backup</text>
+    <text x="560" y="395" fill="#e6edf3" font-size="14">Last backup</text>
+    <text x="980" y="395" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">today, 03:00</text>
+    <rect x="60" y="416" width="1080" height="56" rx="0" fill="#16202b" stroke="none"/>
+    <text x="88" y="451" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">binary_sensor</text>
+    <text x="240" y="451" fill="#3ddc97" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">backup_running</text>
+    <text x="560" y="451" fill="#e6edf3" font-size="14">Backup running</text>
+    <text x="980" y="451" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">off</text>
+    <rect x="60" y="472" width="1080" height="56" rx="0" fill="#141d27" stroke="none"/>
+    <text x="88" y="507" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">button</text>
+    <text x="240" y="507" fill="#7C7CF5" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">backup_now</text>
+    <text x="560" y="507" fill="#e6edf3" font-size="14">Back up now</text>
+    <text x="980" y="507" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">press</text>
+    <rect x="60" y="528" width="1080" height="56" rx="0" fill="#16202b" stroke="none"/>
+    <text x="88" y="563" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">button</text>
+    <text x="240" y="563" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">cancel_backup</text>
+    <text x="560" y="563" fill="#e6edf3" font-size="14">Cancel backup</text>
+    <text x="980" y="563" fill="#9fb0c0" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">press</text>
+    <rect x="60" y="604" width="1080" height="74" rx="14" fill="#16202b" stroke="#28394a"/>
+    <g stroke="#41BDF5" stroke-width="2.2" fill="none" stroke-linejoin="round">
+      <path d="M92 640.8 108.8 624 125.6 640.8"/>
+      <path d="M96.70400000000001 639.12v18.480000000000004h24.192v-18.480000000000004"/>
+      <path d="M102.752 648.192a7.392 7.392 0 0 1 12.096 0" stroke-linecap="round"/>
+    </g>
+    <text x="140" y="636" fill="#e6edf3" font-size="15" font-weight="600">Instance device</text>
+    <text x="140" y="658" fill="#9fb0c0" font-size="13">Total archive size and the next scheduled backup of the container.</text>
+  </g>
+</svg>

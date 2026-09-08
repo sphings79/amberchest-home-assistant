@@ -1,0 +1,60 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mail Archiver",
+        "description": "Adresse deiner Mail-Archiver-Instanz eintragen. Das Passwort ist das der Weboberfläche; leer lassen, wenn keins verlangt wird.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "password": "Passwort der Oberfläche",
+          "ssl": "HTTPS verwenden",
+          "verify_ssl": "Zertifikat prüfen"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Mail Archiver",
+        "description": "Mail Archiver hat das gespeicherte Passwort abgelehnt. Bitte erneut eingeben.",
+        "data": {
+          "password": "Passwort der Oberfläche"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Von dieser Adresse kommt keine Antwort.",
+      "invalid_auth": "Das Passwort wurde abgelehnt.",
+      "password_required": "Diese Instanz ist mit einem Passwort geschützt.",
+      "not_initialized": "Mail Archiver ist noch nicht eingerichtet. Erst die Oberfläche öffnen und ein Master-Passwort vergeben.",
+      "locked": "Mail Archiver ist gesperrt. Mit dem Master-Passwort entsperren und es dann noch einmal versuchen."
+    },
+    "abort": {
+      "already_configured": "Diese Instanz ist bereits eingerichtet.",
+      "reauth_successful": "Mail Archiver ist wieder verbunden."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "messages": { "name": "Nachrichten" },
+      "archive_size": { "name": "Archivgröße" },
+      "folders": { "name": "Ordner" },
+      "last_backup": { "name": "Letzte Sicherung" },
+      "total_size": { "name": "Archivgröße" },
+      "next_run": { "name": "Nächste geplante Sicherung" }
+    },
+    "binary_sensor": {
+      "backup_running": { "name": "Sicherung läuft" }
+    },
+    "button": {
+      "backup_now": { "name": "Jetzt sichern" },
+      "cancel_backup": { "name": "Sicherung abbrechen" }
+    }
+  },
+  "exceptions": {
+    "backup_failed": {
+      "message": "Die Sicherung konnte nicht gestartet werden: {error}"
+    },
+    "cancel_failed": {
+      "message": "Die Sicherung konnte nicht abgebrochen werden: {error}"
+    }
+  }
+}
