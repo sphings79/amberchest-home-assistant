@@ -12,6 +12,9 @@ ignore = ["D203", "D213"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["D100", "D101", "D102", "D103", "D105", "D107", "SLF001"]
+# The artwork generator is one long string of SVG; wrapping it would make it
+# harder to read, not easier.
+"dev/*" = ["D103", "E501", "F541"]
 
 [tool.ruff.lint.isort]
 force-sort-within-sections = true
