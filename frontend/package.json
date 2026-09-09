@@ -1,7 +1,7 @@
 {
   "name": "amberchest-card",
   "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "prebuild": "rm -f ../custom_components/amberchest/frontend/*.js",
