@@ -18,6 +18,7 @@
 ## Table of contents
 
 - [What this integration does](#what-this-integration-does)
+- [Three projects, one archive](#three-projects-one-archive)
 - [Entities you get](#entities-you-get)
 - [How it works](#how-it-works)
 - [Installation](#installation)
@@ -48,6 +49,14 @@ integration brings that into Home Assistant:
 - **A Lovelace card** that puts all of it into one card.
 
 Everything is local polling over HTTP: no cloud, no account, no broker.
+
+## Three projects, one archive
+
+| | What it is |
+| --- | --- |
+| [**Mail Archiver**](https://github.com/sphings79/mail-archiver) | The application itself: desktop app for macOS, Windows and Linux, plus a Docker container with the same interface. Needed — this integration talks to it |
+| **Mail Archiver Integration** (here) | This repository: a device per mailbox, sensors, a backup button and a Lovelace card, installed through HACS |
+| [**Home Assistant App (Add-on)**](https://github.com/sphings79/mail-archiver-ha-app) | Runs Mail Archiver on Home Assistant OS, in the sidebar through ingress. The comfortable way to get the instance this integration needs |
 
 ## Entities you get
 

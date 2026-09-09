@@ -18,6 +18,7 @@
 ## Inhalt
 
 - [Was die Integration macht](#was-die-integration-macht)
+- [Drei Projekte, ein Archiv](#drei-projekte-ein-archiv)
 - [Welche Entitäten entstehen](#welche-entitäten-entstehen)
 - [Wie es funktioniert](#wie-es-funktioniert)
 - [Installation](#installation)
@@ -49,6 +50,14 @@ markieren. Diese Integration bringt das nach Home Assistant:
 - **Eine Lovelace-Karte**, die alles in eine Karte packt.
 
 Alles läuft lokal über HTTP: keine Cloud, kein Konto, kein Broker.
+
+## Drei Projekte, ein Archiv
+
+| | Was es ist |
+| --- | --- |
+| [**Mail Archiver**](https://github.com/sphings79/mail-archiver) | Die Anwendung selbst: Desktop-App für macOS, Windows und Linux, dazu ein Docker-Container mit derselben Oberfläche. Wird gebraucht — diese Integration spricht mit ihr |
+| **Mail Archiver Integration** (hier) | Dieses Repository: ein Gerät je Postfach, Sensoren, ein Knopf zum Sichern und eine Lovelace-Karte, installiert über HACS |
+| [**Home Assistant App (Addon)**](https://github.com/sphings79/mail-archiver-ha-app) | Betreibt Mail Archiver unter Home Assistant OS, per Ingress in der Seitenleiste. Der bequeme Weg zu der Instanz, die diese Integration braucht |
 
 ## Welche Entitäten entstehen
 
