@@ -2,8 +2,8 @@
   "config": {
     "step": {
       "user": {
-        "title": "Mail Archiver",
-        "description": "Enter the address of your Mail Archiver instance. The password is the one that protects its web interface; leave it empty if it does not ask for one.",
+        "title": "AmberChest",
+        "description": "Enter the address of your AmberChest instance. The password is the one that protects its web interface; leave it empty if it does not ask for one.",
         "data": {
           "host": "Host",
           "port": "Port",
@@ -13,8 +13,8 @@
         }
       },
       "reauth_confirm": {
-        "title": "Mail Archiver",
-        "description": "Mail Archiver refused the stored password. Enter it again.",
+        "title": "AmberChest",
+        "description": "AmberChest refused the stored password. Enter it again.",
         "data": {
           "password": "Interface password"
         }
@@ -24,12 +24,12 @@
       "cannot_connect": "No answer from that address.",
       "invalid_auth": "The password was refused.",
       "password_required": "This instance is protected by a password.",
-      "not_initialized": "Mail Archiver has not been set up yet. Open its interface first and choose a master password.",
-      "locked": "Mail Archiver is locked. Unlock it with the master password, then try again."
+      "not_initialized": "AmberChest has not been set up yet. Open its interface first and choose a master password.",
+      "locked": "AmberChest is locked. Unlock it with the master password, then try again."
     },
     "abort": {
       "already_configured": "This instance is already set up.",
-      "reauth_successful": "Mail Archiver is connected again."
+      "reauth_successful": "AmberChest is connected again."
     }
   },
   "entity": {

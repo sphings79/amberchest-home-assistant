@@ -1,7 +1,7 @@
-Mail Archiver for Home Assistant
+AmberChest for Home Assistant
 
-This integration talks to Mail Archiver — The Mail Backup Solution
-(https://github.com/sphings79/mail-archiver), which is licensed under the
+This integration talks to AmberChest — IMAP mail backup in plain .eml files
+(https://github.com/sphings79/amberchest), which is licensed under the
 AGPL-3.0-or-later. This repository contains no code of that project; it is a
 client that speaks to its HTTP API, and is licensed under the MIT licence.
 

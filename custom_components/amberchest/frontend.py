@@ -12,7 +12,7 @@ from .const import DOMAIN
 
 LOGGER = logging.getLogger(__package__)
 
-CARD_FILE = "mail-archiver-card.js"
+CARD_FILE = "amberchest-card.js"
 CARD_URL = f"/{DOMAIN}/{CARD_FILE}"
 REGISTERED = f"{DOMAIN}_frontend_registered"
 
@@ -58,4 +58,4 @@ async def _add_resource(hass: HomeAssistant, url: str) -> None:
             return
 
     await resources.async_create_item({"res_type": "module", "url": url})
-    LOGGER.info("Registered the Mail Archiver card as a Lovelace resource")
+    LOGGER.info("Registered the AmberChest card as a Lovelace resource")

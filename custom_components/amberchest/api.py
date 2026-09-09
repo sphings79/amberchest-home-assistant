@@ -1,4 +1,4 @@
-"""Thin asynchronous client for the Mail Archiver HTTP API."""
+"""Thin asynchronous client for the AmberChest HTTP API."""
 
 from __future__ import annotations
 
@@ -11,20 +11,20 @@ from .const import ACCOUNTS_PATH, LOGIN_PATH, SCHEDULE_PATH, STATE_PATH
 TIMEOUT = ClientTimeout(total=20)
 
 
-class MailArchiverError(Exception):
+class AmberChestError(Exception):
     """The server could not be reached or answered with an error."""
 
 
-class MailArchiverAuthError(MailArchiverError):
+class AmberChestAuthError(AmberChestError):
     """The password was refused."""
 
 
-class MailArchiverLockedError(MailArchiverError):
+class AmberChestLockedError(AmberChestError):
     """The configuration is still locked, so there is nothing to read."""
 
 
-class MailArchiverClient:
-    """Talks to one Mail Archiver instance.
+class AmberChestClient:
+    """Talks to one AmberChest instance.
 
     Authentication has two shapes. An instance without a password lets
     everything through; one with a password hands out a session token in
@@ -65,20 +65,20 @@ class MailArchiverClient:
                 **kwargs,
             )
         except (ClientError, TimeoutError) as error:
-            raise MailArchiverError(str(error)) from error
+            raise AmberChestError(str(error)) from error
 
         if response.status == 401:
             # Either the token expired or we never had one.
             if retry and self._password:
                 await self.login()
                 return await self._request(method, path, retry=False, **kwargs)
-            raise MailArchiverAuthError("Not authenticated")
+            raise AmberChestAuthError("Not authenticated")
 
         if response.status == 423:
-            raise MailArchiverLockedError("The configuration is locked")
+            raise AmberChestLockedError("The configuration is locked")
 
         if response.status >= 400:
-            raise MailArchiverError(f"HTTP {response.status} for {path}")
+            raise AmberChestError(f"HTTP {response.status} for {path}")
 
         return await response.json()
 
@@ -94,12 +94,12 @@ class MailArchiverClient:
                 timeout=TIMEOUT,
             )
         except (ClientError, TimeoutError) as error:
-            raise MailArchiverError(str(error)) from error
+            raise AmberChestError(str(error)) from error
 
         if response.status == 401:
-            raise MailArchiverAuthError("Wrong password")
+            raise AmberChestAuthError("Wrong password")
         if response.status >= 400:
-            raise MailArchiverError(f"HTTP {response.status} while logging in")
+            raise AmberChestError(f"HTTP {response.status} while logging in")
 
         payload = await response.json()
         self._token = payload.get("token")
@@ -116,7 +116,7 @@ class MailArchiverClient:
         """Read the cron expression and the next run; empty outside the container."""
         try:
             return await self._request("GET", SCHEDULE_PATH)
-        except MailArchiverError:
+        except AmberChestError:
             # Older servers do not know this endpoint yet.
             return {"expression": None, "nextRun": None}
 

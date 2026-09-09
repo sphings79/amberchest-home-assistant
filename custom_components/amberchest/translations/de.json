@@ -2,8 +2,8 @@
   "config": {
     "step": {
       "user": {
-        "title": "Mail Archiver",
-        "description": "Adresse deiner Mail-Archiver-Instanz eintragen. Das Passwort ist das der Weboberfläche; leer lassen, wenn keins verlangt wird.",
+        "title": "AmberChest",
+        "description": "Adresse deiner AmberChest-Instanz eintragen. Das Passwort ist das der Weboberfläche; leer lassen, wenn keins verlangt wird.",
         "data": {
           "host": "Host",
           "port": "Port",
@@ -13,8 +13,8 @@
         }
       },
       "reauth_confirm": {
-        "title": "Mail Archiver",
-        "description": "Mail Archiver hat das gespeicherte Passwort abgelehnt. Bitte erneut eingeben.",
+        "title": "AmberChest",
+        "description": "AmberChest hat das gespeicherte Passwort abgelehnt. Bitte erneut eingeben.",
         "data": {
           "password": "Passwort der Oberfläche"
         }
@@ -24,12 +24,12 @@
       "cannot_connect": "Von dieser Adresse kommt keine Antwort.",
       "invalid_auth": "Das Passwort wurde abgelehnt.",
       "password_required": "Diese Instanz ist mit einem Passwort geschützt.",
-      "not_initialized": "Mail Archiver ist noch nicht eingerichtet. Erst die Oberfläche öffnen und ein Master-Passwort vergeben.",
-      "locked": "Mail Archiver ist gesperrt. Mit dem Master-Passwort entsperren und es dann noch einmal versuchen."
+      "not_initialized": "AmberChest ist noch nicht eingerichtet. Erst die Oberfläche öffnen und ein Master-Passwort vergeben.",
+      "locked": "AmberChest ist gesperrt. Mit dem Master-Passwort entsperren und es dann noch einmal versuchen."
     },
     "abort": {
       "already_configured": "Diese Instanz ist bereits eingerichtet.",
-      "reauth_successful": "Mail Archiver ist wieder verbunden."
+      "reauth_successful": "AmberChest ist wieder verbunden."
     }
   },
   "entity": {

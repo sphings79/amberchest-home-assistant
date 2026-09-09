@@ -1,10 +1,10 @@
 {
-  "name": "mail-archiver-card",
+  "name": "amberchest-card",
   "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "prebuild": "rm -f ../custom_components/mail_archiver/frontend/*.js",
+    "prebuild": "rm -f ../custom_components/amberchest/frontend/*.js",
     "build": "vite build",
     "typecheck": "tsc --noEmit"
   },

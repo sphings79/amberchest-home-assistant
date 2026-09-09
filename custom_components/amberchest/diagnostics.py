@@ -8,13 +8,13 @@ from homeassistant.components.diagnostics import async_redact_data
 from homeassistant.const import CONF_PASSWORD
 from homeassistant.core import HomeAssistant
 
-from .coordinator import MailArchiverConfigEntry
+from .coordinator import AmberChestConfigEntry
 
 REDACT = {CONF_PASSWORD, "email", "username", "host"}
 
 
 async def async_get_config_entry_diagnostics(
-    hass: HomeAssistant, entry: MailArchiverConfigEntry
+    hass: HomeAssistant, entry: AmberChestConfigEntry
 ) -> dict[str, Any]:
     """Everything that helps with a bug report, minus the personal parts."""
     coordinator = entry.runtime_data

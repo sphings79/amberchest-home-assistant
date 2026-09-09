@@ -1,14 +1,14 @@
 <div align="center">
-  <img src="assets/banner.svg" alt="Mail Archiver für Home Assistant: jedes gesicherte Postfach als Gerät mit Nachrichten, Archivgröße, letzter Sicherung und einem Knopf zum Sichern" width="100%">
+  <img src="assets/banner.svg" alt="AmberChest für Home Assistant: jedes gesicherte Postfach als Gerät mit Nachrichten, Archivgröße, letzter Sicherung und einem Knopf zum Sichern" width="100%">
 
-  # Mail Archiver — E-Mail-Sicherung als Sensoren in Home Assistant
+  # AmberChest — E-Mail-Sicherung als Sensoren in Home Assistant
 
   **Sehen, wann die Postfächer zuletzt gesichert wurden — und aus Home Assistant heraus sichern.**
-  Begleitintegration zu [Mail Archiver — The Mail Backup Solution](https://github.com/sphings79/mail-archiver),
+  Begleitintegration zu [AmberChest — IMAP-Sicherung in einfachen .eml-Dateien](https://github.com/sphings79/amberchest),
   dem selbstgehosteten Werkzeug, das IMAP-Postfächer in schlichte `.eml`-Dateien kopiert.
 
   [![HACS](https://img.shields.io/badge/HACS-custom-41BDF5?style=for-the-badge)](https://hacs.xyz/)
-  [![Release](https://img.shields.io/github/v/release/sphings79/mail-archiver-home-assistant?style=for-the-badge&color=7C7CF5)](https://github.com/sphings79/mail-archiver-home-assistant/releases)
+  [![Release](https://img.shields.io/github/v/release/sphings79/amberchest-home-assistant?style=for-the-badge&color=7C7CF5)](https://github.com/sphings79/amberchest-home-assistant/releases)
   [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2025.9%2B-41BDF5?style=for-the-badge)](https://www.home-assistant.io/)
   [![Lizenz](https://img.shields.io/badge/Lizenz-MIT-3ddc97?style=for-the-badge)](LICENSE)
 
@@ -35,7 +35,7 @@
 
 ## Was die Integration macht
 
-Mail Archiver sichert IMAP-Postfächer als Dateien auf die eigene Platte — nur
+AmberChest sichert IMAP-Postfächer als Dateien auf die eigene Platte — nur
 lesend, inkrementell, ohne auf dem Server etwas zu löschen oder als gelesen zu
 markieren. Diese Integration bringt das nach Home Assistant:
 
@@ -55,9 +55,9 @@ Alles läuft lokal über HTTP: keine Cloud, kein Konto, kein Broker.
 
 | | Was es ist |
 | --- | --- |
-| [**Mail Archiver**](https://github.com/sphings79/mail-archiver) | Die Anwendung selbst: Desktop-App für macOS, Windows und Linux, dazu ein Docker-Container mit derselben Oberfläche. Wird gebraucht — diese Integration spricht mit ihr |
-| **Mail Archiver Integration** (hier) | Dieses Repository: ein Gerät je Postfach, Sensoren, ein Knopf zum Sichern und eine Lovelace-Karte, installiert über HACS |
-| [**Home Assistant App (Addon)**](https://github.com/sphings79/mail-archiver-ha-app) | Betreibt Mail Archiver unter Home Assistant OS, per Ingress in der Seitenleiste. Der bequeme Weg zu der Instanz, die diese Integration braucht |
+| [**AmberChest**](https://github.com/sphings79/amberchest) | Die Anwendung selbst: Desktop-App für macOS, Windows und Linux, dazu ein Docker-Container mit derselben Oberfläche. Wird gebraucht — diese Integration spricht mit ihr |
+| **AmberChest Integration** (hier) | Dieses Repository: ein Gerät je Postfach, Sensoren, ein Knopf zum Sichern und eine Lovelace-Karte, installiert über HACS |
+| [**Home Assistant App (Addon)**](https://github.com/sphings79/amberchest-ha-app) | Betreibt AmberChest unter Home Assistant OS, per Ingress in der Seitenleiste. Der bequeme Weg zu der Instanz, die diese Integration braucht |
 
 ## Welche Entitäten entstehen
 
@@ -72,19 +72,19 @@ Alles läuft lokal über HTTP: keine Cloud, kein Konto, kein Broker.
 | `binary_sensor.<postfach>_sicherung_lauft` | Binärsensor | `aus` | `running`, mit Ordner und Fortschritt |
 | `button.<postfach>_jetzt_sichern` | Knopf | | Startet eine Sicherung |
 | `button.<postfach>_sicherung_abbrechen` | Knopf | | Standardmäßig deaktiviert |
-| `sensor.mail_archiver_archivgrosse` | Sensor | `1,84 GB` | Alles zusammen |
-| `sensor.mail_archiver_nachste_geplante_sicherung` | Sensor | `morgen, 03:00` | Nur mit Zeitplan, also nur im Container |
+| `sensor.amberchest_archivgrosse` | Sensor | `1,84 GB` | Alles zusammen |
+| `sensor.amberchest_nachste_geplante_sicherung` | Sensor | `morgen, 03:00` | Nur mit Zeitplan, also nur im Container |
 
-Die Entity-IDs entstehen aus dem Namen, den das Konto in Mail Archiver hat.
+Die Entity-IDs entstehen aus dem Namen, den das Konto in AmberChest hat.
 Weil Home Assistant sie aus dem übersetzten Namen bildet, unterscheiden sie
 sich von der englischen Fassung.
 
 ## Wie es funktioniert
 
-<img src="assets/architecture.svg" alt="Home Assistant fragt die HTTP-Schnittstelle von Mail Archiver alle 30 Sekunden ab und macht aus jedem Postfach ein Gerät" width="100%">
+<img src="assets/architecture.svg" alt="Home Assistant fragt die HTTP-Schnittstelle von AmberChest alle 30 Sekunden ab und macht aus jedem Postfach ein Gerät" width="100%">
 
 Ein Koordinator je Instanz fragt alle 30 Sekunden `/api/accounts` und
-`/api/schedule` ab. Die Sitzungstoken von Mail Archiver überleben keinen
+`/api/schedule` ab. Die Sitzungstoken von AmberChest überleben keinen
 Neustart des Servers — der Client meldet sich deshalb von selbst neu an, sobald
 eine Anfrage mit 401 zurückkommt. Nach einem Neustart deiner Instanz ist also
 nichts zu tun.
@@ -96,22 +96,22 @@ nichts zu tun.
 ### Über HACS
 
 1. HACS → Drei-Punkte-Menü → **Benutzerdefinierte Repositorys**
-2. URL `https://github.com/sphings79/mail-archiver-home-assistant`, Kategorie **Integration**
-3. **Mail Archiver** installieren, Home Assistant neu starten
-4. **Einstellungen → Geräte & Dienste → Integration hinzufügen → Mail Archiver**
+2. URL `https://github.com/sphings79/amberchest-home-assistant`, Kategorie **Integration**
+3. **AmberChest** installieren, Home Assistant neu starten
+4. **Einstellungen → Geräte & Dienste → Integration hinzufügen → AmberChest**
 
 ### Von Hand
 
-`custom_components/mail_archiver` nach `config/custom_components/` kopieren und
+`custom_components/amberchest` nach `config/custom_components/` kopieren und
 Home Assistant neu starten.
 
 ## Konfiguration
 
 | Feld | Bedeutung |
 | --- | --- |
-| Host | Wo Mail Archiver läuft, zum Beispiel `192.168.1.20` |
+| Host | Wo AmberChest läuft, zum Beispiel `192.168.1.20` |
 | Port | `8484`, falls nicht geändert |
-| Passwort der Oberfläche | `MAIL_ARCHIVER_UI_PASSWORD` des Containers; leer lassen, wenn keins gesetzt ist |
+| Passwort der Oberfläche | `AMBERCHEST_UI_PASSWORD` des Containers; leer lassen, wenn keins gesetzt ist |
 | HTTPS verwenden | Für eine Instanz hinter einem Reverse Proxy |
 | Zertifikat prüfen | Bei einem selbstsignierten Zertifikat abschalten |
 
@@ -120,13 +120,13 @@ damit der Zustand nicht bis zur nächsten Abfrage wartet.
 
 ## Die Lovelace-Karte
 
-<img src="assets/dashboard.svg" alt="Die Mail-Archiver-Karte mit zwei Postfächern, ihren Nachrichtenzahlen, Größen und einem Knopf zum Sichern, daneben ein Beispiel für eine Automatisierung" width="100%">
+<img src="assets/dashboard.svg" alt="Die AmberChest-Karte mit zwei Postfächern, ihren Nachrichtenzahlen, Größen und einem Knopf zum Sichern, daneben ein Beispiel für eine Automatisierung" width="100%">
 
 Die Karte wird automatisch als Lovelace-Ressource eingetragen. Auf ein
 Dashboard legen:
 
 ```yaml
-type: custom:mail-archiver-card
+type: custom:amberchest-card
 title: Mail-Sicherung   # optional
 hide_empty: false       # optional, blendet leere Postfächer aus
 ```
@@ -137,7 +137,7 @@ einem YAML-Dashboard die Ressource von Hand eintragen:
 ```yaml
 lovelace:
   resources:
-    - url: /mail_archiver/mail-archiver-card.js
+    - url: /amberchest/amberchest-card.js
       type: module
 ```
 
@@ -185,13 +185,13 @@ automation:
 
 ## MQTT oder diese Integration?
 
-Mail Archiver kann dieselben Zahlen auch auf einen MQTT-Broker veröffentlichen.
+AmberChest kann dieselben Zahlen auch auf einen MQTT-Broker veröffentlichen.
 Beide Wege funktionieren und dürfen nebeneinander laufen.
 
 | | Diese Integration | MQTT |
 | --- | --- | --- |
 | Broker nötig | nein | ja |
-| Einrichtung | Dialog in Home Assistant | Broker in Mail Archiver eintragen |
+| Einrichtung | Dialog in Home Assistant | Broker in AmberChest eintragen |
 | Lovelace-Karte | dabei | nein |
 | Aktualisierung | alle 30 s abgefragt | wird während der Sicherung geschickt |
 | Ohne Home Assistant nutzbar | nein | ja, mit jedem MQTT-Client |
@@ -202,13 +202,13 @@ MQTT besser bedient. Sonst ist diese Integration weniger Aufwand.
 ## Fehlersuche
 
 **„Von dieser Adresse kommt keine Antwort."** Home Assistant muss den Rechner
-erreichen, auf dem Mail Archiver läuft. Im Container ist `localhost` der
+erreichen, auf dem AmberChest läuft. Im Container ist `localhost` der
 Container selbst — hier gehört die IP des Hosts hin.
 
-**„Mail Archiver ist gesperrt."** Die Konfiguration ist mit einem
+**„AmberChest ist gesperrt."** Die Konfiguration ist mit einem
 Master-Passwort verschlüsselt. Eine Desktop-Instanz bleibt gesperrt, bis es
 jemand eingibt; ein Container entsperrt sich über
-`MAIL_ARCHIVER_MASTER_PASSWORD` selbst.
+`AMBERCHEST_MASTER_PASSWORD` selbst.
 
 **Es fehlen Knöpfe.** Standardmäßig ist nur der Knopf zum Sichern aktiv. Den
 Abbrechen-Knopf in den Entitätseinstellungen einschalten.
@@ -241,7 +241,7 @@ Ja, solange die App läuft und im Netz erreichbar ist. Die Desktop-App hat
 keinen Zeitplan, deshalb bleibt der Sensor für die nächste geplante Sicherung
 unbekannt.
 
-### Was passiert, wenn ich ein Postfach in Mail Archiver umbenenne?
+### Was passiert, wenn ich ein Postfach in AmberChest umbenenne?
 
 Die Entitäten behalten ihre IDs — sie hängen am Konto, nicht am Namen. Der
 Gerätename zieht beim nächsten Neustart nach.
@@ -249,12 +249,12 @@ Gerätename zieht beim nächsten Neustart nach.
 ### Läuft das mit Home Assistant OS, Container und Core?
 
 Ja, mit allen dreien. Für Home Assistant OS gibt es zusätzlich die
-[Home Assistant App (Addon)](https://github.com/sphings79/mail-archiver-ha-app),
-die Mail Archiver dort selbst betreibt.
+[Home Assistant App (Addon)](https://github.com/sphings79/amberchest-ha-app),
+die AmberChest dort selbst betreibt.
 
 ## Credits
 
-[Mail Archiver — The Mail Backup Solution](https://github.com/sphings79/mail-archiver)
+[AmberChest — IMAP-Sicherung in einfachen .eml-Dateien](https://github.com/sphings79/amberchest)
 von [sphings79](https://github.com/sphings79), AGPL-3.0. Diese Integration ist
 ein Client für dessen HTTP-Schnittstelle und enthält keinen Code daraus.
 
@@ -282,5 +282,5 @@ Das gebaute Kartenbündel liegt im Repo, weil HACS keinen Build ausführt.
 MIT — siehe [LICENSE](LICENSE).
 
 <sub>home assistant mail sicherung · imap backup sensor · e-mail archiv home assistant ·
-mail archiver integration · hacs integration · postfach überwachen ·
+amberchest integration · hacs integration · postfach überwachen ·
 sicherungsstatus sensor · lovelace karte e-mail sicherung</sub>

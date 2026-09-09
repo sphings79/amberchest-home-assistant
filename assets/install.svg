@@ -19,14 +19,14 @@
     <circle cx="386" cy="146" r="22" fill="url(#accent)"/>
     <text x="386" y="153" fill="#0f1720" font-size="18" font-weight="700" text-anchor="middle">2</text>
     <text x="366" y="206" fill="#e6edf3" font-size="17" font-weight="600">Install</text>
-    <text x="366" y="234" fill="#9fb0c0" font-size="13">Install “Mail Archiver” and</text>
+    <text x="366" y="234" fill="#9fb0c0" font-size="13">Install “AmberChest” and</text>
     <text x="366" y="254" fill="#9fb0c0" font-size="13">restart Home Assistant.</text>
     <rect x="624" y="100" width="258" height="200" rx="14" fill="#16202b" stroke="#28394a"/>
     <circle cx="668" cy="146" r="22" fill="url(#accent)"/>
     <text x="668" y="153" fill="#0f1720" font-size="18" font-weight="700" text-anchor="middle">3</text>
     <text x="648" y="206" fill="#e6edf3" font-size="17" font-weight="600">Add</text>
     <text x="648" y="234" fill="#9fb0c0" font-size="13">Settings, Devices &amp; services,</text>
-    <text x="648" y="254" fill="#9fb0c0" font-size="13">Add integration, Mail Archiver.</text>
+    <text x="648" y="254" fill="#9fb0c0" font-size="13">Add integration, AmberChest.</text>
     <rect x="906" y="100" width="258" height="200" rx="14" fill="#16202b" stroke="#28394a"/>
     <circle cx="950" cy="146" r="22" fill="url(#accent)"/>
     <text x="950" y="153" fill="#0f1720" font-size="18" font-weight="700" text-anchor="middle">4</text>

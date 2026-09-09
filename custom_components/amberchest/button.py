@@ -7,15 +7,15 @@ from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
-from .api import MailArchiverError
+from .api import AmberChestError
 from .const import DOMAIN
-from .coordinator import MailArchiverConfigEntry, MailArchiverCoordinator
-from .entity import MailArchiverAccountEntity
+from .coordinator import AmberChestConfigEntry, AmberChestCoordinator
+from .entity import AmberChestAccountEntity
 
 
 async def async_setup_entry(
     hass: HomeAssistant,
-    entry: MailArchiverConfigEntry,
+    entry: AmberChestConfigEntry,
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Create a backup and a cancel button per mailbox."""
@@ -27,10 +27,10 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 
-class BackupButton(MailArchiverAccountEntity, ButtonEntity):
+class BackupButton(AmberChestAccountEntity, ButtonEntity):
     """Start a backup of this mailbox."""
 
-    def __init__(self, coordinator: MailArchiverCoordinator, account_id: str) -> None:
+    def __init__(self, coordinator: AmberChestCoordinator, account_id: str) -> None:
         """Name the entity."""
         super().__init__(coordinator, account_id, "backup_now")
 
@@ -38,7 +38,7 @@ class BackupButton(MailArchiverAccountEntity, ButtonEntity):
         """Ask the server to back up, then refresh so the flag flips."""
         try:
             await self.coordinator.client.start_backup(self.account_id)
-        except MailArchiverError as error:
+        except AmberChestError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
                 translation_key="backup_failed",
@@ -47,12 +47,12 @@ class BackupButton(MailArchiverAccountEntity, ButtonEntity):
         await self.coordinator.async_request_refresh()
 
 
-class CancelButton(MailArchiverAccountEntity, ButtonEntity):
+class CancelButton(AmberChestAccountEntity, ButtonEntity):
     """Stop the backup of this mailbox."""
 
     _attr_entity_registry_enabled_default = False
 
-    def __init__(self, coordinator: MailArchiverCoordinator, account_id: str) -> None:
+    def __init__(self, coordinator: AmberChestCoordinator, account_id: str) -> None:
         """Name the entity."""
         super().__init__(coordinator, account_id, "cancel_backup")
 
@@ -60,7 +60,7 @@ class CancelButton(MailArchiverAccountEntity, ButtonEntity):
         """Ask the server to stop, then refresh."""
         try:
             await self.coordinator.client.cancel_backup(self.account_id)
-        except MailArchiverError as error:
+        except AmberChestError as error:
             raise HomeAssistantError(
                 translation_domain=DOMAIN,
                 translation_key="cancel_failed",

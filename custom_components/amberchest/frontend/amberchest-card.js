@@ -3,7 +3,7 @@
  * Copyright 2019 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const N = globalThis, z = N.ShadowRoot && (N.ShadyCSS === void 0 || N.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, I = Symbol(), W = /* @__PURE__ */ new WeakMap();
+const U = globalThis, z = U.ShadowRoot && (U.ShadyCSS === void 0 || U.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype, I = Symbol(), W = /* @__PURE__ */ new WeakMap();
 let st = class {
   constructor(t, e, s) {
     if (this._$cssResult$ = !0, s !== I) throw Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");
@@ -22,17 +22,17 @@ let st = class {
     return this.cssText;
   }
 };
-const ht = (n) => new st(typeof n == "string" ? n : n + "", void 0, I), lt = (n, ...t) => {
+const ht = (n) => new st(typeof n == "string" ? n : n + "", void 0, I), ct = (n, ...t) => {
   const e = n.length === 1 ? n[0] : t.reduce((s, i, r) => s + ((o) => {
     if (o._$cssResult$ === !0) return o.cssText;
     if (typeof o == "number") return o;
     throw Error("Value passed to 'css' function must be a 'css' function result: " + o + ". Use 'unsafeCSS' to pass non-literal values, but take care to ensure page security.");
   })(i) + n[r + 1], n[0]);
   return new st(e, n, I);
-}, ct = (n, t) => {
+}, lt = (n, t) => {
   if (z) n.adoptedStyleSheets = t.map((e) => e instanceof CSSStyleSheet ? e : e.styleSheet);
   else for (const e of t) {
-    const s = document.createElement("style"), i = N.litNonce;
+    const s = document.createElement("style"), i = U.litNonce;
     i !== void 0 && s.setAttribute("nonce", i), s.textContent = e.cssText, n.appendChild(s);
   }
 }, V = z ? (n) => n : (n) => n instanceof CSSStyleSheet ? ((t) => {
@@ -156,7 +156,7 @@ let v = class extends HTMLElement {
   }
   createRenderRoot() {
     const t = this.shadowRoot ?? this.attachShadow(this.constructor.shadowRootOptions);
-    return ct(t, this.constructor.elementStyles), t;
+    return lt(t, this.constructor.elementStyles), t;
   }
   connectedCallback() {
     this.renderRoot ??= this.createRenderRoot(), this.enableUpdating(!0), this._$EO?.forEach((t) => t.hostConnected?.());
@@ -262,7 +262,7 @@ v.elementStyles = [], v.shadowRootOptions = { mode: "open" }, v[w("elementProper
  * Copyright 2017 Google LLC
  * SPDX-License-Identifier: BSD-3-Clause
  */
-const D = globalThis, F = (n) => n, U = D.trustedTypes, J = U ? U.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, nt = "$lit$", f = `lit$${Math.random().toFixed(9).slice(2)}$`, rt = "?" + f, yt = `<${rt}>`, g = document, x = () => g.createComment(""), C = (n) => n === null || typeof n != "object" && typeof n != "function", L = Array.isArray, vt = (n) => L(n) || typeof n?.[Symbol.iterator] == "function", H = `[ 	
+const D = globalThis, F = (n) => n, M = D.trustedTypes, J = M ? M.createPolicy("lit-html", { createHTML: (n) => n }) : void 0, nt = "$lit$", f = `lit$${Math.random().toFixed(9).slice(2)}$`, rt = "?" + f, yt = `<${rt}>`, g = document, x = () => g.createComment(""), C = (n) => n === null || typeof n != "object" && typeof n != "function", L = Array.isArray, vt = (n) => L(n) || typeof n?.[Symbol.iterator] == "function", H = `[ 	
 \f\r]`, E = /<(?:(!--|\/[^a-zA-Z])|(\/?[a-zA-Z][^>\s]*)|(\/?$))/g, Z = /-->/g, G = />/g, m = RegExp(`>|${H}(?:([^\\s"'>=/]+)(${H}*=${H}*(?:[^ 	
 \f\r"'\`<>=]|("|')|))|$)`, "g"), Q = /'/g, X = /"/g, ot = /^(?:script|style|textarea|title)$/i, At = (n) => (t, ...e) => ({ _$litType$: n, strings: t, values: e }), y = At(1), A = Symbol.for("lit-noChange"), d = Symbol.for("lit-nothing"), Y = /* @__PURE__ */ new WeakMap(), _ = g.createTreeWalker(g, 129);
 function at(n, t) {
@@ -274,10 +274,10 @@ const bt = (n, t) => {
   let i, r = t === 2 ? "<svg>" : t === 3 ? "<math>" : "", o = E;
   for (let h = 0; h < e; h++) {
     const a = n[h];
-    let l, u, c = -1, p = 0;
-    for (; p < a.length && (o.lastIndex = p, u = o.exec(a), u !== null); ) p = o.lastIndex, o === E ? u[1] === "!--" ? o = Z : u[1] !== void 0 ? o = G : u[2] !== void 0 ? (ot.test(u[2]) && (i = RegExp("</" + u[2], "g")), o = m) : u[3] !== void 0 && (o = m) : o === m ? u[0] === ">" ? (o = i ?? E, c = -1) : u[1] === void 0 ? c = -2 : (c = o.lastIndex - u[2].length, l = u[1], o = u[3] === void 0 ? m : u[3] === '"' ? X : Q) : o === X || o === Q ? o = m : o === Z || o === G ? o = E : (o = m, i = void 0);
+    let c, u, l = -1, p = 0;
+    for (; p < a.length && (o.lastIndex = p, u = o.exec(a), u !== null); ) p = o.lastIndex, o === E ? u[1] === "!--" ? o = Z : u[1] !== void 0 ? o = G : u[2] !== void 0 ? (ot.test(u[2]) && (i = RegExp("</" + u[2], "g")), o = m) : u[3] !== void 0 && (o = m) : o === m ? u[0] === ">" ? (o = i ?? E, l = -1) : u[1] === void 0 ? l = -2 : (l = o.lastIndex - u[2].length, c = u[1], o = u[3] === void 0 ? m : u[3] === '"' ? X : Q) : o === X || o === Q ? o = m : o === Z || o === G ? o = E : (o = m, i = void 0);
     const $ = o === m && n[h + 1].startsWith("/>") ? " " : "";
-    r += o === E ? a + yt : c >= 0 ? (s.push(l), a.slice(0, c) + nt + a.slice(c) + f + $) : a + f + (c === -2 ? h : $);
+    r += o === E ? a + yt : l >= 0 ? (s.push(c), a.slice(0, l) + nt + a.slice(l) + f + $) : a + f + (l === -2 ? h : $);
   }
   return [at(n, r + (n[e] || "<?>") + (t === 2 ? "</svg>" : t === 3 ? "</math>" : "")), s];
 };
@@ -286,29 +286,29 @@ class P {
     let i;
     this.parts = [];
     let r = 0, o = 0;
-    const h = t.length - 1, a = this.parts, [l, u] = bt(t, e);
-    if (this.el = P.createElement(l, s), _.currentNode = this.el.content, e === 2 || e === 3) {
-      const c = this.el.content.firstChild;
-      c.replaceWith(...c.childNodes);
+    const h = t.length - 1, a = this.parts, [c, u] = bt(t, e);
+    if (this.el = P.createElement(c, s), _.currentNode = this.el.content, e === 2 || e === 3) {
+      const l = this.el.content.firstChild;
+      l.replaceWith(...l.childNodes);
     }
     for (; (i = _.nextNode()) !== null && a.length < h; ) {
       if (i.nodeType === 1) {
-        if (i.hasAttributes()) for (const c of i.getAttributeNames()) if (c.endsWith(nt)) {
-          const p = u[o++], $ = i.getAttribute(c).split(f), k = /([.?@])?(.*)/.exec(p);
-          a.push({ type: 1, index: r, name: k[2], strings: $, ctor: k[1] === "." ? wt : k[1] === "?" ? St : k[1] === "@" ? xt : R }), i.removeAttribute(c);
-        } else c.startsWith(f) && (a.push({ type: 6, index: r }), i.removeAttribute(c));
+        if (i.hasAttributes()) for (const l of i.getAttributeNames()) if (l.endsWith(nt)) {
+          const p = u[o++], $ = i.getAttribute(l).split(f), N = /([.?@])?(.*)/.exec(p);
+          a.push({ type: 1, index: r, name: N[2], strings: $, ctor: N[1] === "." ? wt : N[1] === "?" ? St : N[1] === "@" ? xt : R }), i.removeAttribute(l);
+        } else l.startsWith(f) && (a.push({ type: 6, index: r }), i.removeAttribute(l));
         if (ot.test(i.tagName)) {
-          const c = i.textContent.split(f), p = c.length - 1;
+          const l = i.textContent.split(f), p = l.length - 1;
           if (p > 0) {
-            i.textContent = U ? U.emptyScript : "";
-            for (let $ = 0; $ < p; $++) i.append(c[$], x()), _.nextNode(), a.push({ type: 2, index: ++r });
-            i.append(c[p], x());
+            i.textContent = M ? M.emptyScript : "";
+            for (let $ = 0; $ < p; $++) i.append(l[$], x()), _.nextNode(), a.push({ type: 2, index: ++r });
+            i.append(l[p], x());
           }
         }
       } else if (i.nodeType === 8) if (i.data === rt) a.push({ type: 2, index: r });
       else {
-        let c = -1;
-        for (; (c = i.data.indexOf(f, c + 1)) !== -1; ) a.push({ type: 7, index: r }), c += f.length - 1;
+        let l = -1;
+        for (; (l = i.data.indexOf(f, l + 1)) !== -1; ) a.push({ type: 7, index: r }), l += f.length - 1;
       }
       r++;
     }
@@ -340,8 +340,8 @@ class Et {
     let r = _.nextNode(), o = 0, h = 0, a = s[0];
     for (; a !== void 0; ) {
       if (o === a.index) {
-        let l;
-        a.type === 2 ? l = new M(r, r.nextSibling, this, t) : a.type === 1 ? l = new a.ctor(r, a.name, a.strings, this, t) : a.type === 6 && (l = new Ct(r, this, t)), this._$AV.push(l), a = s[++h];
+        let c;
+        a.type === 2 ? c = new k(r, r.nextSibling, this, t) : a.type === 1 ? c = new a.ctor(r, a.name, a.strings, this, t) : a.type === 6 && (c = new Ct(r, this, t)), this._$AV.push(c), a = s[++h];
       }
       o !== a?.index && (r = _.nextNode(), o++);
     }
@@ -352,7 +352,7 @@ class Et {
     for (const s of this._$AV) s !== void 0 && (s.strings !== void 0 ? (s._$AI(t, s, e), e += s.strings.length - 2) : s._$AI(t[e])), e++;
   }
 }
-class M {
+class k {
   get _$AU() {
     return this._$AM?._$AU ?? this._$Cv;
   }
@@ -398,7 +398,7 @@ class M {
     L(this._$AH) || (this._$AH = [], this._$AR());
     const e = this._$AH;
     let s, i = 0;
-    for (const r of t) i === e.length ? e.push(s = new M(this.O(x()), this.O(x()), this, this.options)) : s = e[i], s._$AI(r), i++;
+    for (const r of t) i === e.length ? e.push(s = new k(this.O(x()), this.O(x()), this, this.options)) : s = e[i], s._$AI(r), i++;
     i < e.length && (this._$AR(s && s._$AB.nextSibling, i), e.length = i);
   }
   _$AR(t = this._$AA.nextSibling, e) {
@@ -427,8 +427,8 @@ class R {
     if (r === void 0) t = b(this, t, e, 0), o = !C(t) || t !== this._$AH && t !== A, o && (this._$AH = t);
     else {
       const h = t;
-      let a, l;
-      for (t = r[0], a = 0; a < r.length - 1; a++) l = b(this, h[s + a], e, a), l === A && (l = this._$AH[a]), o ||= !C(l) || l !== this._$AH[a], l === d ? t = d : t !== d && (t += (l ?? "") + r[a + 1]), this._$AH[a] = l;
+      let a, c;
+      for (t = r[0], a = 0; a < r.length - 1; a++) c = b(this, h[s + a], e, a), c === A && (c = this._$AH[a]), o ||= !C(c) || c !== this._$AH[a], c === d ? t = d : t !== d && (t += (c ?? "") + r[a + 1]), this._$AH[a] = c;
     }
     o && !i && this.j(t);
   }
@@ -477,13 +477,13 @@ class Ct {
   }
 }
 const Pt = D.litHtmlPolyfillSupport;
-Pt?.(P, M), (D.litHtmlVersions ??= []).push("3.3.3");
-const Mt = (n, t, e) => {
+Pt?.(P, k), (D.litHtmlVersions ??= []).push("3.3.3");
+const kt = (n, t, e) => {
   const s = e?.renderBefore ?? t;
   let i = s._$litPart$;
   if (i === void 0) {
     const r = e?.renderBefore ?? null;
-    s._$litPart$ = i = new M(t.insertBefore(x(), r), r, void 0, e ?? {});
+    s._$litPart$ = i = new k(t.insertBefore(x(), r), r, void 0, e ?? {});
   }
   return i._$AI(n), i;
 };
@@ -503,7 +503,7 @@ class S extends v {
   }
   update(t) {
     const e = this.render();
-    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(t), this._$Do = Mt(e, this.renderRoot, this.renderOptions);
+    this.hasUpdated || (this.renderOptions.isConnected = this.isConnected), super.update(t), this._$Do = kt(e, this.renderRoot, this.renderOptions);
   }
   connectedCallback() {
     super.connectedCallback(), this._$Do?.setConnected(!0);
@@ -516,12 +516,12 @@ class S extends v {
   }
 }
 S._$litElement$ = !0, S.finalized = !0, j.litElementHydrateSupport?.({ LitElement: S });
-const kt = j.litElementPolyfillSupport;
-kt?.({ LitElement: S });
+const Nt = j.litElementPolyfillSupport;
+Nt?.({ LitElement: S });
 (j.litElementVersions ??= []).push("4.2.2");
-const Nt = {
-  title: "Mail Archiver",
-  noAccounts: "No mailbox found. Is the Mail Archiver integration set up?",
+const Ut = {
+  title: "AmberChest",
+  noAccounts: "No mailbox found. Is the AmberChest integration set up?",
   messages: "Messages",
   size: "Size",
   lastBackup: "Last backup",
@@ -530,9 +530,9 @@ const Nt = {
   backUpNow: "Back up now",
   nextRun: "Next run",
   total: "Archive"
-}, Ut = {
-  title: "Mail Archiver",
-  noAccounts: "Kein Postfach gefunden. Ist die Mail-Archiver-Integration eingerichtet?",
+}, Mt = {
+  title: "AmberChest",
+  noAccounts: "Kein Postfach gefunden. Ist die AmberChest-Integration eingerichtet?",
   messages: "Nachrichten",
   size: "Größe",
   lastBackup: "Letzte Sicherung",
@@ -543,9 +543,9 @@ const Nt = {
   total: "Archiv"
 };
 function Ot(n) {
-  return (n ?? "en").split("-")[0] === "de" ? Ut : Nt;
+  return (n ?? "en").split("-")[0] === "de" ? Mt : Ut;
 }
-const T = "mail_archiver";
+const T = "amberchest";
 function tt(n) {
   if (n === null) return "–";
   if (n < 1024) return `${n} B`;
@@ -567,9 +567,9 @@ function et(n, t, e) {
     ["month", 12]
   ];
   let h = i;
-  for (const [a, l] of o) {
-    if (Math.abs(h) < l) return r.format(Math.round(h), a);
-    h /= l;
+  for (const [a, c] of o) {
+    if (Math.abs(h) < c) return r.format(Math.round(h), a);
+    h /= c;
   }
   return r.format(Math.round(h), "year");
 }
@@ -581,7 +581,7 @@ class Rt extends S {
     };
   }
   static {
-    this.styles = lt`
+    this.styles = ct`
     ha-card {
       padding: 12px 0 4px;
     }
@@ -697,8 +697,8 @@ class Rt extends S {
         phase: null,
         backupButton: null
       }, e.set(i.device_id, a));
-      const l = String(r.attributes.device_class ?? ""), u = String(r.attributes.unit_of_measurement ?? "");
-      s.startsWith("binary_sensor.") ? (a.running = r.state === "on", a.phase = r.attributes.phase ?? null) : s.startsWith("button.") ? a.backupButton === null && (a.backupButton = s) : l === "data_size" ? a.bytes = Number(r.state) * (u === "MB" ? 1024 * 1024 : 1) : l === "timestamp" ? a.lastBackup = r.state === "unknown" ? null : r.state : u === "messages" && (a.messages = Number(r.state));
+      const c = String(r.attributes.device_class ?? ""), u = String(r.attributes.unit_of_measurement ?? "");
+      s.startsWith("binary_sensor.") ? (a.running = r.state === "on", a.phase = r.attributes.phase ?? null) : s.startsWith("button.") ? a.backupButton === null && (a.backupButton = s) : c === "data_size" ? a.bytes = Number(r.state) * (u === "MB" ? 1024 * 1024 : 1) : c === "timestamp" ? a.lastBackup = r.state === "unknown" ? null : r.state : u === "messages" && (a.messages = Number(r.state));
     }
     return [...e.values()].filter((s) => s.messages !== null).sort((s, i) => s.name.localeCompare(i.name));
   }
@@ -766,14 +766,14 @@ class Rt extends S {
     `;
   }
 }
-customElements.define("mail-archiver-card", Rt);
+customElements.define("amberchest-card", Rt);
 const Ht = window.customCards ??= [];
 Ht.push({
-  type: "mail-archiver-card",
-  name: "Mail Archiver",
+  type: "amberchest-card",
+  name: "AmberChest",
   description: "Every archived mailbox with its numbers and a backup button.",
   preview: !0
 });
 export {
-  Rt as MailArchiverCard
+  Rt as AmberChestCard
 };

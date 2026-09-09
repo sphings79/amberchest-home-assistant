@@ -11,13 +11,13 @@ from homeassistant.components.binary_sensor import (
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
-from .coordinator import MailArchiverConfigEntry, MailArchiverCoordinator
-from .entity import MailArchiverAccountEntity
+from .coordinator import AmberChestConfigEntry, AmberChestCoordinator
+from .entity import AmberChestAccountEntity
 
 
 async def async_setup_entry(
     hass: HomeAssistant,
-    entry: MailArchiverConfigEntry,
+    entry: AmberChestConfigEntry,
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """One running flag per mailbox."""
@@ -28,12 +28,12 @@ async def async_setup_entry(
     )
 
 
-class BackupRunningSensor(MailArchiverAccountEntity, BinarySensorEntity):
-    """On while Mail Archiver is talking to this mailbox."""
+class BackupRunningSensor(AmberChestAccountEntity, BinarySensorEntity):
+    """On while AmberChest is talking to this mailbox."""
 
     _attr_device_class = BinarySensorDeviceClass.RUNNING
 
-    def __init__(self, coordinator: MailArchiverCoordinator, account_id: str) -> None:
+    def __init__(self, coordinator: AmberChestCoordinator, account_id: str) -> None:
         """Name the entity."""
         super().__init__(coordinator, account_id, "backup_running")
 

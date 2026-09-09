@@ -16,9 +16,9 @@ from homeassistant.helpers.selector import (
 import voluptuous as vol
 
 from .api import (
-    MailArchiverAuthError,
-    MailArchiverClient,
-    MailArchiverError,
+    AmberChestAuthError,
+    AmberChestClient,
+    AmberChestError,
 )
 from .const import CONF_VERIFY_SSL, DEFAULT_PORT, DOMAIN
 
@@ -41,7 +41,7 @@ def schema(defaults: Mapping[str, Any] | None = None) -> vol.Schema:
     )
 
 
-class MailArchiverConfigFlow(ConfigFlow, domain=DOMAIN):
+class AmberChestConfigFlow(ConfigFlow, domain=DOMAIN):
     """Ask for the address of the instance and try it out."""
 
     VERSION = 1
@@ -61,7 +61,7 @@ class MailArchiverConfigFlow(ConfigFlow, domain=DOMAIN):
             error = await self._check(user_input)
             if error is None:
                 return self.async_create_entry(
-                    title=f"Mail Archiver ({user_input[CONF_HOST]})",
+                    title=f"AmberChest ({user_input[CONF_HOST]})",
                     data=user_input,
                 )
             errors["base"] = error
@@ -73,7 +73,7 @@ class MailArchiverConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_reauth(
         self, entry_data: Mapping[str, Any]
     ) -> ConfigFlowResult:
-        """Mail Archiver forgets its sessions on a restart; ask again."""
+        """AmberChest forgets its sessions on a restart; ask again."""
         return await self.async_step_reauth_confirm()
 
     async def async_step_reauth_confirm(
@@ -106,7 +106,7 @@ class MailArchiverConfigFlow(ConfigFlow, domain=DOMAIN):
         """Return an error key, or None when the instance answered."""
         verify_ssl = data.get(CONF_VERIFY_SSL, True)
         scheme = "https" if data.get(CONF_SSL) else "http"
-        client = MailArchiverClient(
+        client = AmberChestClient(
             async_get_clientsession(self.hass, verify_ssl=verify_ssl),
             f"{scheme}://{data[CONF_HOST]}:{data[CONF_PORT]}",
             data.get(CONF_PASSWORD) or None,
@@ -115,7 +115,7 @@ class MailArchiverConfigFlow(ConfigFlow, domain=DOMAIN):
 
         try:
             state = await client.state()
-        except MailArchiverError:
+        except AmberChestError:
             return "cannot_connect"
 
         if not state.get("initialized"):
@@ -127,16 +127,16 @@ class MailArchiverConfigFlow(ConfigFlow, domain=DOMAIN):
                 return "password_required"
             try:
                 await client.login()
-            except MailArchiverAuthError:
+            except AmberChestAuthError:
                 return "invalid_auth"
-            except MailArchiverError:
+            except AmberChestError:
                 return "cannot_connect"
 
         try:
             await client.accounts()
-        except MailArchiverAuthError:
+        except AmberChestAuthError:
             return "invalid_auth"
-        except MailArchiverError:
+        except AmberChestError:
             # Reachable but locked, which sorts itself out once the master
             # password has been entered there.
             return "locked"

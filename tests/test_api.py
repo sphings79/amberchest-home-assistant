@@ -1,4 +1,4 @@
-"""Tests for the HTTP client, against a small server that plays Mail Archiver."""
+"""Tests for the HTTP client, against a small server that plays AmberChest."""
 
 from __future__ import annotations
 
@@ -45,7 +45,7 @@ async def server(aiohttp_server):
 
 async def client_for(api, server, password: str | None = "secret"):
     session = ClientSession()
-    return api.MailArchiverClient(session, str(server.make_url("")), password)
+    return api.AmberChestClient(session, str(server.make_url("")), password)
 
 
 async def test_login_stores_the_token(api, server) -> None:
@@ -56,7 +56,7 @@ async def test_login_stores_the_token(api, server) -> None:
 
 async def test_wrong_password_is_reported(api, server) -> None:
     client = await client_for(api, server, "nope")
-    with pytest.raises(api.MailArchiverAuthError):
+    with pytest.raises(api.AmberChestAuthError):
         await client.login()
 
 
@@ -73,7 +73,7 @@ async def test_a_dropped_session_logs_in_again(api, server) -> None:
 
 async def test_without_a_password_a_401_is_final(api, server) -> None:
     client = await client_for(api, server, None)
-    with pytest.raises(api.MailArchiverAuthError):
+    with pytest.raises(api.AmberChestAuthError):
         await client.accounts()
 
 
@@ -85,9 +85,9 @@ async def test_an_old_server_without_the_schedule_route(api, server) -> None:
 
 async def test_a_server_that_is_not_there(api, unused_tcp_port) -> None:
     session = ClientSession()
-    client = api.MailArchiverClient(
+    client = api.AmberChestClient(
         session, f"http://127.0.0.1:{unused_tcp_port}", None
     )
-    with pytest.raises(api.MailArchiverError):
+    with pytest.raises(api.AmberChestError):
         await client.state()
     await session.close()

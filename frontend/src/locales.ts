@@ -13,8 +13,8 @@ export interface Strings {
 }
 
 export const en: Strings = {
-  title: 'Mail Archiver',
-  noAccounts: 'No mailbox found. Is the Mail Archiver integration set up?',
+  title: 'AmberChest',
+  noAccounts: 'No mailbox found. Is the AmberChest integration set up?',
   messages: 'Messages',
   size: 'Size',
   lastBackup: 'Last backup',
@@ -26,8 +26,8 @@ export const en: Strings = {
 };
 
 export const de: Strings = {
-  title: 'Mail Archiver',
-  noAccounts: 'Kein Postfach gefunden. Ist die Mail-Archiver-Integration eingerichtet?',
+  title: 'AmberChest',
+  noAccounts: 'Kein Postfach gefunden. Ist die AmberChest-Integration eingerichtet?',
   messages: 'Nachrichten',
   size: 'Größe',
   lastBackup: 'Letzte Sicherung',

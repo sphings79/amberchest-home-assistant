@@ -14,24 +14,24 @@ from types import ModuleType
 import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
-API_PATH = ROOT / "custom_components" / "mail_archiver" / "api.py"
+API_PATH = ROOT / "custom_components" / "amberchest" / "api.py"
 
 
 def _load_api() -> ModuleType:
     """Load api.py with a stand-in package, so its relative import works."""
-    package = ModuleType("mail_archiver_pkg")
+    package = ModuleType("amberchest_pkg")
     package.__path__ = [str(API_PATH.parent)]
-    sys.modules["mail_archiver_pkg"] = package
+    sys.modules["amberchest_pkg"] = package
 
     for name in ("const", "api"):
         spec = importlib.util.spec_from_file_location(
-            f"mail_archiver_pkg.{name}", API_PATH.parent / f"{name}.py"
+            f"amberchest_pkg.{name}", API_PATH.parent / f"{name}.py"
         )
         assert spec and spec.loader
         module = importlib.util.module_from_spec(spec)
-        sys.modules[f"mail_archiver_pkg.{name}"] = module
+        sys.modules[f"amberchest_pkg.{name}"] = module
         spec.loader.exec_module(module)
-    return sys.modules["mail_archiver_pkg.api"]
+    return sys.modules["amberchest_pkg.api"]
 
 
 @pytest.fixture(scope="session")

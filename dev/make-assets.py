@@ -88,7 +88,7 @@ def banner() -> str:
         + f'    <circle cx="1040" cy="90" r="180" fill="url(#accent)" opacity="0.10"/>\n'
         + card(72, 96, 72, 72, 22, "url(#accent)", "none")
         + envelope(95, 120, 1.0)
-        + text(172, 132, "Mail Archiver", TEXT, 34, "700")
+        + text(172, 132, "AmberChest", TEXT, 34, "700")
         + text(172, 162, "for Home Assistant", HA, 20, "600")
         + text(
             72,
@@ -112,7 +112,7 @@ def banner() -> str:
         + text(528, 315, "English · Deutsch", MUTED, 14, "600")
         + house(1020, 150, 3.4, HA, 3)
     )
-    return frame(1200, 400, "Mail Archiver for Home Assistant", body)
+    return frame(1200, 400, "AmberChest for Home Assistant", body)
 
 
 def architecture() -> str:
@@ -121,12 +121,12 @@ def architecture() -> str:
         + text(
             60,
             92,
-            "Home Assistant asks your Mail Archiver every 30 seconds. Nothing leaves your network.",
+            "Home Assistant asks your AmberChest every 30 seconds. Nothing leaves your network.",
             MUTED,
             15,
         )
         + card(60, 140, 300, 200)
-        + text(88, 180, "Mail Archiver", TEXT, 17, "600")
+        + text(88, 180, "AmberChest", TEXT, 17, "600")
         + text(88, 206, "Desktop app or container", MUTED, 13)
         + text(88, 244, "GET  /api/accounts", HA, 13, family=MONO)
         + text(88, 268, "GET  /api/schedule", HA, 13, family=MONO)
@@ -155,7 +155,7 @@ def architecture() -> str:
             14,
         )
     )
-    return frame(1200, 460, "How the integration talks to Mail Archiver", body)
+    return frame(1200, 460, "How the integration talks to AmberChest", body)
 
 
 def entities() -> str:
@@ -216,7 +216,7 @@ def dashboard() -> str:
         )
         + card(60, 130, 620, 300, 14)
         + envelope(92, 158, 0.8, HA, 2)
-        + text(136, 178, "Mail Archiver", TEXT, 17, "500")
+        + text(136, 178, "AmberChest", TEXT, 17, "500")
         + text(650, 168, "Archive: 1.84 GB", MUTED, 13, anchor="end")
         + text(650, 190, "Next run: in 6 hours", MUTED, 13, anchor="end")
         + f'    <line x1="60" y1="206" x2="680" y2="206" stroke="{BORDER}"/>\n'
@@ -254,8 +254,8 @@ def install() -> str:
             "HACS",
             "Add this repository as a custom repository, category Integration.",
         ),
-        ("2", "Install", "Install “Mail Archiver” and restart Home Assistant."),
-        ("3", "Add", "Settings, Devices & services, Add integration, Mail Archiver."),
+        ("2", "Install", "Install “AmberChest” and restart Home Assistant."),
+        ("3", "Add", "Settings, Devices & services, Add integration, AmberChest."),
         (
             "4",
             "Connect",
@@ -289,7 +289,7 @@ def social() -> str:
         f'    <circle cx="1120" cy="120" r="260" fill="url(#accent)" opacity="0.12"/>\n'
         + card(96, 150, 96, 96, 28, "url(#accent)", "none")
         + envelope(126, 186, 1.3)
-        + text(224, 200, "Mail Archiver", TEXT, 46, "700")
+        + text(224, 200, "AmberChest", TEXT, 46, "700")
         + text(224, 244, "for Home Assistant", HA, 28, "600")
         + text(
             96, 330, "Your mail backup as devices, sensors and a button —", MUTED, 22
@@ -301,11 +301,11 @@ def social() -> str:
         + text(460, 453, "Local polling", VIOLET, 17, "600", anchor="middle")
         + house(940, 300, 7.0, HA, 4)
     )
-    return frame(1280, 640, "Mail Archiver for Home Assistant", body)
+    return frame(1280, 640, "AmberChest for Home Assistant", body)
 
 
 def brand_icon() -> str:
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Mail Archiver icon">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="AmberChest icon">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="{HA}"/>
@@ -322,7 +322,7 @@ def brand_icon() -> str:
 
 
 def brand_logo() -> str:
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 446 160" width="446" height="160" role="img" aria-label="Mail Archiver">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 446 160" width="446" height="160" role="img" aria-label="AmberChest">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="{HA}"/>
@@ -334,7 +334,7 @@ def brand_logo() -> str:
     <rect x="30" y="60" width="44" height="34" rx="7"/>
     <path d="M30 68l22 17 22-17"/>
   </g>
-  <text x="118" y="82" font-family="{FONT}" font-size="34" font-weight="700" fill="{HA}">Mail Archiver</text>
+  <text x="118" y="82" font-family="{FONT}" font-size="34" font-weight="700" fill="{HA}">AmberChest</text>
   <text x="118" y="112" font-family="{FONT}" font-size="18" fill="{VIOLET}">backup entities and a card</text>
 </svg>
 """

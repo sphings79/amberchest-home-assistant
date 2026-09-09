@@ -14,7 +14,7 @@
       <rect x="92" y="158" width="20.8" height="15.2" rx="2.4"/>
       <path d="M92 161.2 102.4 170.0 112.8 161.2"/>
     </g>
-    <text x="136" y="178" fill="#e6edf3" font-size="17" font-weight="500">Mail Archiver</text>
+    <text x="136" y="178" fill="#e6edf3" font-size="17" font-weight="500">AmberChest</text>
     <text x="650" y="168" fill="#9fb0c0" font-size="13" text-anchor="end">Archive: 1.84 GB</text>
     <text x="650" y="190" fill="#9fb0c0" font-size="13" text-anchor="end">Next run: in 6 hours</text>
     <line x1="60" y1="206" x2="680" y2="206" stroke="#28394a"/>

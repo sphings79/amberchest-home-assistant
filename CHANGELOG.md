@@ -8,7 +8,7 @@ All notable changes to this project are documented here. The format follows
 
 ### Added
 
-- Config flow for a Mail Archiver instance: host, port, HTTPS and the interface
+- Config flow for a AmberChest instance: host, port, HTTPS and the interface
   password, with re-authentication when the server forgets its sessions.
 - One device per mailbox, with sensors for messages, archive size, folders and
   the last backup, a binary sensor for a running backup and buttons to start or

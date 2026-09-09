@@ -7,13 +7,13 @@ import { defineConfig } from 'vite';
  */
 export default defineConfig({
   build: {
-    outDir: '../custom_components/mail_archiver/frontend',
+    outDir: '../custom_components/amberchest/frontend',
     emptyOutDir: false,
     target: 'es2022',
     lib: {
       entry: 'src/card.ts',
       formats: ['es'],
-      fileName: () => 'mail-archiver-card.js',
+      fileName: () => 'amberchest-card.js',
     },
   },
 });

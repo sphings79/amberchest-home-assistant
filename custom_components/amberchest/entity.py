@@ -8,15 +8,15 @@ from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import DOMAIN
-from .coordinator import MailArchiverCoordinator
+from .coordinator import AmberChestCoordinator
 
 
-class MailArchiverEntity(CoordinatorEntity[MailArchiverCoordinator]):
+class AmberChestEntity(CoordinatorEntity[AmberChestCoordinator]):
     """An entity that belongs to the instance as a whole."""
 
     _attr_has_entity_name = True
 
-    def __init__(self, coordinator: MailArchiverCoordinator, key: str) -> None:
+    def __init__(self, coordinator: AmberChestCoordinator, key: str) -> None:
         """Attach the entity to the server device."""
         super().__init__(coordinator)
         entry_id = coordinator.config_entry.entry_id
@@ -24,20 +24,20 @@ class MailArchiverEntity(CoordinatorEntity[MailArchiverCoordinator]):
         self._attr_translation_key = key
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, entry_id)},
-            name="Mail Archiver",
-            manufacturer="Mail Archiver",
+            name="AmberChest",
+            manufacturer="AmberChest",
             model="Mail backup",
             configuration_url=coordinator.client.base_url,
         )
 
 
-class MailArchiverAccountEntity(CoordinatorEntity[MailArchiverCoordinator]):
+class AmberChestAccountEntity(CoordinatorEntity[AmberChestCoordinator]):
     """An entity that belongs to one mailbox."""
 
     _attr_has_entity_name = True
 
     def __init__(
-        self, coordinator: MailArchiverCoordinator, account_id: str, key: str
+        self, coordinator: AmberChestCoordinator, account_id: str, key: str
     ) -> None:
         """Attach the entity to the device of its mailbox."""
         super().__init__(coordinator)
@@ -48,7 +48,7 @@ class MailArchiverAccountEntity(CoordinatorEntity[MailArchiverCoordinator]):
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, f"{entry_id}_{account_id}")},
             name=self.account.get("name", "Mailbox"),
-            manufacturer="Mail Archiver",
+            manufacturer="AmberChest",
             model="IMAP account",
             via_device=(DOMAIN, entry_id),
             configuration_url=coordinator.client.base_url,
@@ -66,5 +66,5 @@ class MailArchiverAccountEntity(CoordinatorEntity[MailArchiverCoordinator]):
 
     @property
     def available(self) -> bool:
-        """A mailbox that was removed in Mail Archiver is not available."""
+        """A mailbox that was removed in AmberChest is not available."""
         return super().available and self.account_id in self.coordinator.data.accounts

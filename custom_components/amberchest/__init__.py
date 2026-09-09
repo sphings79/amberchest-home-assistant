@@ -1,4 +1,4 @@
-"""The Mail Archiver integration for Home Assistant."""
+"""The AmberChest integration for Home Assistant."""
 
 from __future__ import annotations
 
@@ -8,13 +8,13 @@ from homeassistant.exceptions import ConfigEntryAuthFailed, ConfigEntryNotReady
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .api import (
-    MailArchiverAuthError,
-    MailArchiverClient,
-    MailArchiverError,
-    MailArchiverLockedError,
+    AmberChestAuthError,
+    AmberChestClient,
+    AmberChestError,
+    AmberChestLockedError,
 )
 from .const import CONF_VERIFY_SSL
-from .coordinator import MailArchiverConfigEntry, MailArchiverCoordinator
+from .coordinator import AmberChestConfigEntry, AmberChestCoordinator
 from .frontend import async_register_card
 
 PLATFORMS: list[Platform] = [Platform.BINARY_SENSOR, Platform.BUTTON, Platform.SENSOR]
@@ -27,11 +27,11 @@ def build_url(host: str, port: int, ssl: bool) -> str:
 
 
 async def async_setup_entry(
-    hass: HomeAssistant, entry: MailArchiverConfigEntry
+    hass: HomeAssistant, entry: AmberChestConfigEntry
 ) -> bool:
-    """Set up one Mail Archiver instance."""
+    """Set up one AmberChest instance."""
     verify_ssl = entry.data.get(CONF_VERIFY_SSL, True)
-    client = MailArchiverClient(
+    client = AmberChestClient(
         async_get_clientsession(hass, verify_ssl=verify_ssl),
         build_url(
             entry.data[CONF_HOST],
@@ -44,15 +44,15 @@ async def async_setup_entry(
 
     try:
         await client.login()
-    except MailArchiverAuthError as error:
+    except AmberChestAuthError as error:
         raise ConfigEntryAuthFailed(str(error)) from error
-    except MailArchiverError as error:
+    except AmberChestError as error:
         raise ConfigEntryNotReady(str(error)) from error
 
-    coordinator = MailArchiverCoordinator(hass, entry, client)
+    coordinator = AmberChestCoordinator(hass, entry, client)
     try:
         await coordinator.async_config_entry_first_refresh()
-    except MailArchiverLockedError as error:
+    except AmberChestLockedError as error:
         # The master password has not been entered yet; try again later.
         raise ConfigEntryNotReady(str(error)) from error
 
@@ -65,12 +65,12 @@ async def async_setup_entry(
 
 
 async def async_unload_entry(
-    hass: HomeAssistant, entry: MailArchiverConfigEntry
+    hass: HomeAssistant, entry: AmberChestConfigEntry
 ) -> bool:
     """Tear the instance down again."""
     return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
 
 
-async def _reload(hass: HomeAssistant, entry: MailArchiverConfigEntry) -> None:
+async def _reload(hass: HomeAssistant, entry: AmberChestConfigEntry) -> None:
     """Start over, which is the simplest way to apply a changed option."""
     await hass.config_entries.async_reload(entry.entry_id)

@@ -45,7 +45,7 @@ interface Mailbox {
   backupButton: string | null;
 }
 
-const DOMAIN = 'mail_archiver';
+const DOMAIN = 'amberchest';
 
 function bytes(value: number | null): string {
   if (value === null) return '–';
@@ -84,7 +84,7 @@ function ago(iso: string | null, language: string, never: string): string {
   return format.format(Math.round(value), 'year');
 }
 
-export class MailArchiverCard extends LitElement {
+export class AmberChestCard extends LitElement {
   static properties = {
     hass: { attribute: false },
     _config: { state: true },
@@ -329,13 +329,13 @@ export class MailArchiverCard extends LitElement {
   }
 }
 
-customElements.define('mail-archiver-card', MailArchiverCard);
+customElements.define('amberchest-card', AmberChestCard);
 
 // Makes the card appear in the "add card" dialog.
 const cards = ((window as unknown as { customCards?: unknown[] }).customCards ??= []);
 cards.push({
-  type: 'mail-archiver-card',
-  name: 'Mail Archiver',
+  type: 'amberchest-card',
+  name: 'AmberChest',
   description: 'Every archived mailbox with its numbers and a backup button.',
   preview: true,
 });

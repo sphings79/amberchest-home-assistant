@@ -1,4 +1,4 @@
-"""Polls one Mail Archiver instance and hands the result to the entities."""
+"""Polls one AmberChest instance and hands the result to the entities."""
 
 from __future__ import annotations
 
@@ -11,16 +11,16 @@ from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryAuthFailed
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
-from .api import MailArchiverAuthError, MailArchiverClient, MailArchiverError
+from .api import AmberChestAuthError, AmberChestClient, AmberChestError
 from .const import DEFAULT_SCAN_INTERVAL, DOMAIN
 
 LOGGER = logging.getLogger(__package__)
 
-type MailArchiverConfigEntry = ConfigEntry[MailArchiverCoordinator]
+type AmberChestConfigEntry = ConfigEntry[AmberChestCoordinator]
 
 
 @dataclass
-class MailArchiverData:
+class AmberChestData:
     """Everything one poll brings back."""
 
     accounts: dict[str, dict[str, Any]] = field(default_factory=dict)
@@ -30,14 +30,14 @@ class MailArchiverData:
     cron: str | None = None
 
 
-class MailArchiverCoordinator(DataUpdateCoordinator[MailArchiverData]):
+class AmberChestCoordinator(DataUpdateCoordinator[AmberChestData]):
     """Asks the server for the state of every mailbox."""
 
     def __init__(
         self,
         hass: HomeAssistant,
-        entry: MailArchiverConfigEntry,
-        client: MailArchiverClient,
+        entry: AmberChestConfigEntry,
+        client: AmberChestClient,
     ) -> None:
         """Set up the polling loop."""
         super().__init__(
@@ -49,16 +49,16 @@ class MailArchiverCoordinator(DataUpdateCoordinator[MailArchiverData]):
         )
         self.client = client
 
-    async def _async_update_data(self) -> MailArchiverData:
+    async def _async_update_data(self) -> AmberChestData:
         try:
             accounts = await self.client.accounts()
             schedule = await self.client.schedule()
-        except MailArchiverAuthError as error:
+        except AmberChestAuthError as error:
             raise ConfigEntryAuthFailed(str(error)) from error
-        except MailArchiverError as error:
+        except AmberChestError as error:
             raise UpdateFailed(str(error)) from error
 
-        data = MailArchiverData(
+        data = AmberChestData(
             next_run=schedule.get("nextRun"),
             cron=schedule.get("expression"),
         )

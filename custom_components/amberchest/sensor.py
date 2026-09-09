@@ -19,12 +19,12 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.util import dt as dt_util
 
-from .coordinator import MailArchiverConfigEntry, MailArchiverCoordinator
-from .entity import MailArchiverAccountEntity, MailArchiverEntity
+from .coordinator import AmberChestConfigEntry, AmberChestCoordinator
+from .entity import AmberChestAccountEntity, AmberChestEntity
 
 
 def _timestamp(value: str | None) -> datetime | None:
-    """Mail Archiver sends ISO strings; Home Assistant wants aware datetimes."""
+    """AmberChest sends ISO strings; Home Assistant wants aware datetimes."""
     return dt_util.parse_datetime(value) if value else None
 
 
@@ -75,7 +75,7 @@ ACCOUNT_SENSORS: tuple[AccountSensorDescription, ...] = (
 
 async def async_setup_entry(
     hass: HomeAssistant,
-    entry: MailArchiverConfigEntry,
+    entry: AmberChestConfigEntry,
     async_add_entities: AddConfigEntryEntitiesCallback,
 ) -> None:
     """Create the sensors for the instance and for every mailbox."""
@@ -93,14 +93,14 @@ async def async_setup_entry(
     async_add_entities(entities)
 
 
-class AccountSensor(MailArchiverAccountEntity, SensorEntity):
+class AccountSensor(AmberChestAccountEntity, SensorEntity):
     """One number of one mailbox."""
 
     entity_description: AccountSensorDescription
 
     def __init__(
         self,
-        coordinator: MailArchiverCoordinator,
+        coordinator: AmberChestCoordinator,
         account_id: str,
         description: AccountSensorDescription,
     ) -> None:
@@ -136,7 +136,7 @@ class AccountSensor(MailArchiverAccountEntity, SensorEntity):
         }
 
 
-class TotalSizeSensor(MailArchiverEntity, SensorEntity):
+class TotalSizeSensor(AmberChestEntity, SensorEntity):
     """The size of the whole archive."""
 
     _attr_device_class = SensorDeviceClass.DATA_SIZE
@@ -145,7 +145,7 @@ class TotalSizeSensor(MailArchiverEntity, SensorEntity):
     _attr_suggested_unit_of_measurement = UnitOfInformation.MEGABYTES
     _attr_suggested_display_precision = 1
 
-    def __init__(self, coordinator: MailArchiverCoordinator) -> None:
+    def __init__(self, coordinator: AmberChestCoordinator) -> None:
         """Name the entity."""
         super().__init__(coordinator, "total_size")
 
@@ -163,12 +163,12 @@ class TotalSizeSensor(MailArchiverEntity, SensorEntity):
         }
 
 
-class NextRunSensor(MailArchiverEntity, SensorEntity):
+class NextRunSensor(AmberChestEntity, SensorEntity):
     """When the container will back up next; unknown without a schedule."""
 
     _attr_device_class = SensorDeviceClass.TIMESTAMP
 
-    def __init__(self, coordinator: MailArchiverCoordinator) -> None:
+    def __init__(self, coordinator: AmberChestCoordinator) -> None:
         """Name the entity."""
         super().__init__(coordinator, "next_run")
 

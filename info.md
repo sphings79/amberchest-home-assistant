@@ -1,6 +1,6 @@
-# Mail Archiver for Home Assistant
+# AmberChest for Home Assistant
 
-Brings [Mail Archiver](https://github.com/sphings79/mail-archiver) — the
+Brings [AmberChest](https://github.com/sphings79/amberchest) — the
 self-hosted IMAP backup tool — into Home Assistant.
 
 - A device per mailbox: archived messages, size on disk, folders, last backup
@@ -18,15 +18,15 @@ password of the web interface.
 
 | | What it is |
 | --- | --- |
-| [Mail Archiver](https://github.com/sphings79/mail-archiver) | The application: desktop app for macOS, Windows and Linux, plus a Docker container. Needed — this integration talks to it |
-| [Mail Archiver Integration](https://github.com/sphings79/mail-archiver-home-assistant) | This one: devices, sensors, backup button, Lovelace card |
-| [Home Assistant App (Add-on)](https://github.com/sphings79/mail-archiver-ha-app) | Runs Mail Archiver on Home Assistant OS, in the sidebar through ingress |
+| [AmberChest](https://github.com/sphings79/amberchest) | The application: desktop app for macOS, Windows and Linux, plus a Docker container. Needed — this integration talks to it |
+| [AmberChest Integration](https://github.com/sphings79/amberchest-home-assistant) | This one: devices, sensors, backup button, Lovelace card |
+| [Home Assistant App (Add-on)](https://github.com/sphings79/amberchest-ha-app) | Runs AmberChest on Home Assistant OS, in the sidebar through ingress |
 
-Mail Archiver itself is by [sphings79](https://github.com/sphings79) and
+AmberChest itself is by [sphings79](https://github.com/sphings79) and
 licensed under the AGPL-3.0; this integration is an MIT licensed client for its
 HTTP API. Unofficial, community built, not affiliated with the Home Assistant
 project.
 
 If it is useful to you: a ⭐ on
-[either repository](https://github.com/sphings79/mail-archiver-home-assistant)
+[either repository](https://github.com/sphings79/amberchest-home-assistant)
 helps, and there is a [coffee](https://buymeacoffee.com/sphings) button as well.
