@@ -85,9 +85,7 @@ async def test_an_old_server_without_the_schedule_route(api, server) -> None:
 
 async def test_a_server_that_is_not_there(api, unused_tcp_port) -> None:
     session = ClientSession()
-    client = api.AmberChestClient(
-        session, f"http://127.0.0.1:{unused_tcp_port}", None
-    )
+    client = api.AmberChestClient(session, f"http://127.0.0.1:{unused_tcp_port}", None)
     with pytest.raises(api.AmberChestError):
         await client.state()
     await session.close()

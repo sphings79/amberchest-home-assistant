@@ -26,9 +26,7 @@ def build_url(host: str, port: int, ssl: bool) -> str:
     return f"{scheme}://{host}:{port}"
 
 
-async def async_setup_entry(
-    hass: HomeAssistant, entry: AmberChestConfigEntry
-) -> bool:
+async def async_setup_entry(hass: HomeAssistant, entry: AmberChestConfigEntry) -> bool:
     """Set up one AmberChest instance."""
     verify_ssl = entry.data.get(CONF_VERIFY_SSL, True)
     client = AmberChestClient(
@@ -64,9 +62,7 @@ async def async_setup_entry(
     return True
 
 
-async def async_unload_entry(
-    hass: HomeAssistant, entry: AmberChestConfigEntry
-) -> bool:
+async def async_unload_entry(hass: HomeAssistant, entry: AmberChestConfigEntry) -> bool:
     """Tear the instance down again."""
     return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
 
