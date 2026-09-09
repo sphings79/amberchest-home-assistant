@@ -31,7 +31,7 @@
     <g stroke="#41BDF5" stroke-width="2.6" fill="none" stroke-linejoin="round">
       <path d="M986 209.6 1019.6 176 1053.2 209.6"/>
       <path d="M995.408 206.24v36.96000000000001h48.384v-36.96000000000001"/>
-      <path d="M1007.504 224.38400000000001a14.784 14.784 0 0 1 24.192 0" stroke-linecap="round"/>
+      <path d="M1010.192 243.2 v-21.504 a9.408000000000001 9.408000000000001 0 0 1 18.816000000000003 0 v21.504"/>
     </g>
     <text x="1020" y="280" fill="#e6edf3" font-size="16" font-weight="600" text-anchor="middle">Home Assistant</text>
     <text x="1020" y="304" fill="#9fb0c0" font-size="13" text-anchor="middle">Entities, automations, card</text>

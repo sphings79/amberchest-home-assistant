@@ -75,7 +75,9 @@ def house(x, y, size=1.0, colour=HA, width=2.4):
         f'    <g stroke="{colour}" stroke-width="{width}" fill="none" stroke-linejoin="round">\n'
         f'      <path d="M{x} {y + s * 0.5} {x + s * 0.5} {y} {x + s} {y + s * 0.5}"/>\n'
         f'      <path d="M{x + s * 0.14} {y + s * 0.45}v{s * 0.55}h{s * 0.72}v-{s * 0.55}"/>\n'
-        f'      <path d="M{x + s * 0.32} {y + s * 0.72}a{s * 0.22} {s * 0.22} 0 0 1 {s * 0.36} 0" stroke-linecap="round"/>\n'
+        # A door standing on the floor. An arc in the middle of the wall reads
+        # as a mouth once the picture is big enough, and a downturned one.
+        f'      <path d="M{x + s * 0.36} {y + s} v-{s * 0.32} a{s * 0.14} {s * 0.14} 0 0 1 {s * 0.28} 0 v{s * 0.32}"/>\n'
         f"    </g>\n"
     )
 
