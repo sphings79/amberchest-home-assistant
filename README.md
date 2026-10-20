@@ -7,10 +7,12 @@
   Companion integration for [AmberChest — IMAP mail backup in plain .eml files](https://github.com/sphings79/amberchest),
   the self-hosted tool that copies IMAP mailboxes to plain `.eml` files.
 
-  [![HACS](https://img.shields.io/badge/HACS-custom-41BDF5?style=for-the-badge)](https://hacs.xyz/)
+  [![HACS](https://img.shields.io/badge/HACS-default-41BDF5?style=for-the-badge)](https://hacs.xyz/)
   [![Release](https://img.shields.io/github/v/release/sphings79/amberchest-home-assistant?style=for-the-badge&color=7C7CF5)](https://github.com/sphings79/amberchest-home-assistant/releases)
   [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2025.9%2B-41BDF5?style=for-the-badge)](https://www.home-assistant.io/)
   [![Licence](https://img.shields.io/badge/licence-MIT-3ddc97?style=for-the-badge)](LICENSE)
+
+  [![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sphings79&repository=amberchest-home-assistant&category=integration)
 
   **English** · [Deutsch](README.de.md)
 </div>
@@ -91,10 +93,11 @@ with a 401 — a restart of your AmberChest does not need any action here.
 
 ### HACS
 
-1. HACS → three dots → **Custom repositories**
-2. URL `https://github.com/sphings79/amberchest-home-assistant`, category **Integration**
-3. Install **AmberChest**, restart Home Assistant
-4. **Settings → Devices & services → Add integration → AmberChest**
+[![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sphings79&repository=amberchest-home-assistant&category=integration)
+
+1. Open HACS, search for **AmberChest** and download it (or use the button above)
+2. Restart Home Assistant
+3. **Settings → Devices & services → Add integration → AmberChest**
 
 ### Manually
 
