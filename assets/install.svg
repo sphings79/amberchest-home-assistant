@@ -11,16 +11,16 @@
     <rect x="60" y="100" width="258" height="200" rx="14" fill="#16202b" stroke="#28394a"/>
     <circle cx="104" cy="146" r="22" fill="url(#accent)"/>
     <text x="104" y="153" fill="#0f1720" font-size="18" font-weight="700" text-anchor="middle">1</text>
-    <text x="84" y="206" fill="#e6edf3" font-size="17" font-weight="600">HACS</text>
-    <text x="84" y="234" fill="#9fb0c0" font-size="13">Add this repository as a custom</text>
-    <text x="84" y="254" fill="#9fb0c0" font-size="13">repository, category</text>
-    <text x="84" y="274" fill="#9fb0c0" font-size="13">Integration.</text>
+    <text x="84" y="206" fill="#e6edf3" font-size="17" font-weight="600">Search</text>
+    <text x="84" y="234" fill="#9fb0c0" font-size="13">Open HACS and search for</text>
+    <text x="84" y="254" fill="#9fb0c0" font-size="13">“AmberChest”, then press</text>
+    <text x="84" y="274" fill="#9fb0c0" font-size="13">Download.</text>
     <rect x="342" y="100" width="258" height="200" rx="14" fill="#16202b" stroke="#28394a"/>
     <circle cx="386" cy="146" r="22" fill="url(#accent)"/>
     <text x="386" y="153" fill="#0f1720" font-size="18" font-weight="700" text-anchor="middle">2</text>
-    <text x="366" y="206" fill="#e6edf3" font-size="17" font-weight="600">Install</text>
-    <text x="366" y="234" fill="#9fb0c0" font-size="13">Install “AmberChest” and</text>
-    <text x="366" y="254" fill="#9fb0c0" font-size="13">restart Home Assistant.</text>
+    <text x="366" y="206" fill="#e6edf3" font-size="17" font-weight="600">Restart</text>
+    <text x="366" y="234" fill="#9fb0c0" font-size="13">Restart Home Assistant so</text>
+    <text x="366" y="254" fill="#9fb0c0" font-size="13">the integration is loaded.</text>
     <rect x="624" y="100" width="258" height="200" rx="14" fill="#16202b" stroke="#28394a"/>
     <circle cx="668" cy="146" r="22" fill="url(#accent)"/>
     <text x="668" y="153" fill="#0f1720" font-size="18" font-weight="700" text-anchor="middle">3</text>

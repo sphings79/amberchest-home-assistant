@@ -89,7 +89,7 @@ with a 401 — a restart of your AmberChest does not need any action here.
 
 ## Installation
 
-<img src="assets/install.svg" alt="Four installation steps: add the custom repository in HACS, install, add the integration, enter host and password" width="100%">
+<img src="assets/install.svg" alt="Four installation steps: search it in HACS and download it, restart, add the integration, enter host and password" width="100%">
 
 ### HACS
 

@@ -93,7 +93,7 @@ nichts zu tun.
 
 ## Installation
 
-<img src="assets/install.svg" alt="Vier Installationsschritte: eigenes Repository in HACS hinzufügen, installieren, Integration hinzufügen, Host und Passwort eintragen" width="100%">
+<img src="assets/install.svg" alt="Vier Installationsschritte: in HACS suchen und herunterladen, neu starten, Integration hinzufügen, Host und Passwort eintragen" width="100%">
 
 ### Über HACS
 
