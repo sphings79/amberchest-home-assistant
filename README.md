@@ -7,12 +7,12 @@
   Companion integration for [AmberChest — IMAP mail backup in plain .eml files](https://github.com/sphings79/amberchest),
   the self-hosted tool that copies IMAP mailboxes to plain `.eml` files.
 
-  [![HACS](https://img.shields.io/badge/HACS-default-41BDF5?style=for-the-badge)](https://hacs.xyz/)
+  [![Marketplace](https://img.shields.io/badge/Marketplace-41BDF5?style=for-the-badge)](https://my.home-assistant.io/redirect/marketplace_browse/)
   [![Release](https://img.shields.io/github/v/release/sphings79/amberchest-home-assistant?style=for-the-badge&color=7C7CF5)](https://github.com/sphings79/amberchest-home-assistant/releases)
   [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2025.9%2B-41BDF5?style=for-the-badge)](https://www.home-assistant.io/)
   [![Licence](https://img.shields.io/badge/licence-MIT-3ddc97?style=for-the-badge)](LICENSE)
 
-  [![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sphings79&repository=amberchest-home-assistant&category=integration)
+  [![Open your Home Assistant instance and open this repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sphings79&repository=amberchest-home-assistant&category=integration)
 
   **English** · [Deutsch](README.de.md)
 </div>
@@ -91,7 +91,19 @@ with a 401 — a restart of your AmberChest does not need any action here.
 
 <img src="assets/install.svg" alt="Four installation steps: search it in HACS and download it, restart, add the integration, enter host and password" width="100%">
 
-### HACS
+### Marketplace (Home Assistant 2026.11 and newer)
+
+Home Assistant 2026.11 replaces HACS with the built-in **Marketplace**. If you installed AmberChest through HACS, the Marketplace takes it over on upgrade, and you don't need to do anything.
+
+For a new install, open **Settings → Marketplace**, search for **AmberChest** and install it, or use this button:
+
+[![Open your Home Assistant instance and open this repository in the Marketplace.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sphings79&repository=amberchest-home-assistant&category=integration)
+
+Restart Home Assistant if a repair asks you to.
+
+If **AmberChest** doesn't show up in the search, add it as a custom repository instead: in **Settings → Marketplace**, add `https://github.com/sphings79/amberchest-home-assistant` (category **Integration**), then install it from there. Custom repositories need the Marketplace to be connected to GitHub, and it asks you to connect the first time.
+
+### HACS (Home Assistant 2026.10 and older)
 
 [![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sphings79&repository=amberchest-home-assistant&category=integration)
 

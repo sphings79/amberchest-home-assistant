@@ -7,12 +7,12 @@
   Begleitintegration zu [AmberChest — IMAP-Sicherung in einfachen .eml-Dateien](https://github.com/sphings79/amberchest),
   dem selbstgehosteten Werkzeug, das IMAP-Postfächer in schlichte `.eml`-Dateien kopiert.
 
-  [![HACS](https://img.shields.io/badge/HACS-default-41BDF5?style=for-the-badge)](https://hacs.xyz/)
+  [![Marketplace](https://img.shields.io/badge/Marketplace-41BDF5?style=for-the-badge)](https://my.home-assistant.io/redirect/marketplace_browse/)
   [![Release](https://img.shields.io/github/v/release/sphings79/amberchest-home-assistant?style=for-the-badge&color=7C7CF5)](https://github.com/sphings79/amberchest-home-assistant/releases)
   [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2025.9%2B-41BDF5?style=for-the-badge)](https://www.home-assistant.io/)
   [![Lizenz](https://img.shields.io/badge/Lizenz-MIT-3ddc97?style=for-the-badge)](LICENSE)
 
-  [![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sphings79&repository=amberchest-home-assistant&category=integration)
+  [![Öffne deine Home-Assistant-Instanz und zeige dieses Repository im Marketplace an.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sphings79&repository=amberchest-home-assistant&category=integration)
 
   [English](README.md) · **Deutsch**
 </div>
@@ -95,7 +95,19 @@ nichts zu tun.
 
 <img src="assets/install.svg" alt="Vier Installationsschritte: in HACS suchen und herunterladen, neu starten, Integration hinzufügen, Host und Passwort eintragen" width="100%">
 
-### Über HACS
+### Marketplace (Home Assistant 2026.11 und neuer)
+
+Home Assistant 2026.11 ersetzt HACS durch den eingebauten **Marketplace**. Wenn du AmberChest über HACS installiert hast, übernimmt der Marketplace es beim Update, und du musst nichts tun.
+
+Für eine Neuinstallation öffne **Einstellungen → Marketplace**, suche nach **AmberChest** und installiere es, oder nutze diesen Button:
+
+[![Öffne deine Home-Assistant-Instanz und zeige dieses Repository im Marketplace an.](https://my.home-assistant.io/badges/marketplace_repository.svg)](https://my.home-assistant.io/redirect/marketplace_repository/?owner=sphings79&repository=amberchest-home-assistant&category=integration)
+
+Starte Home Assistant neu, falls eine Reparatur dich dazu auffordert.
+
+Wenn **AmberChest** in der Suche nicht auftaucht, füge es stattdessen als benutzerdefiniertes Repository hinzu: Füge in **Einstellungen → Marketplace** `https://github.com/sphings79/amberchest-home-assistant` hinzu (Kategorie **Integration**) und installiere es dort. Benutzerdefinierte Repositories setzen voraus, dass der Marketplace mit GitHub verbunden ist; beim ersten Mal fragt er danach.
+
+### HACS (Home Assistant 2026.10 und älter)
 
 [![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=sphings79&repository=amberchest-home-assistant&category=integration)
 
