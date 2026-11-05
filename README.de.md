@@ -58,7 +58,7 @@ Alles läuft lokal über HTTP: keine Cloud, kein Konto, kein Broker.
 | | Was es ist |
 | --- | --- |
 | [**AmberChest**](https://github.com/sphings79/amberchest) | Die Anwendung selbst: Desktop-App für macOS, Windows und Linux, dazu ein Docker-Container mit derselben Oberfläche. Wird gebraucht — diese Integration spricht mit ihr |
-| **AmberChest Integration** (hier) | Dieses Repository: ein Gerät je Postfach, Sensoren, ein Knopf zum Sichern und eine Lovelace-Karte, installiert über HACS |
+| **AmberChest Integration** (hier) | Dieses Repository: ein Gerät je Postfach, Sensoren, ein Knopf zum Sichern und eine Lovelace-Karte, installiert über den Marketplace (oder HACS) |
 | [**Home Assistant App (Addon)**](https://github.com/sphings79/amberchest-ha-app) | Betreibt AmberChest unter Home Assistant OS, per Ingress in der Seitenleiste. Der bequeme Weg zu der Instanz, die diese Integration braucht |
 
 ## Welche Entitäten entstehen
@@ -290,12 +290,12 @@ ruff format . && ruff check . && pytest
 cd frontend && npm run build
 ```
 
-Das gebaute Kartenbündel liegt im Repo, weil HACS keinen Build ausführt.
+Das gebaute Kartenbündel liegt im Repo, weil die Installation aus dem Repository keinen Build ausführt.
 
 ## Lizenz
 
 MIT — siehe [LICENSE](LICENSE).
 
 <sub>home assistant mail sicherung · imap backup sensor · e-mail archiv home assistant ·
-amberchest integration · hacs integration · postfach überwachen ·
+amberchest integration · marketplace integration · hacs integration · postfach überwachen ·
 sicherungsstatus sensor · lovelace karte e-mail sicherung</sub>

@@ -57,7 +57,7 @@ Everything is local polling over HTTP: no cloud, no account, no broker.
 | | What it is |
 | --- | --- |
 | [**AmberChest**](https://github.com/sphings79/amberchest) | The application itself: desktop app for macOS, Windows and Linux, plus a Docker container with the same interface. Needed — this integration talks to it |
-| **AmberChest Integration** (here) | This repository: a device per mailbox, sensors, a backup button and a Lovelace card, installed through HACS |
+| **AmberChest Integration** (here) | This repository: a device per mailbox, sensors, a backup button and a Lovelace card, installed through the Marketplace (or HACS) |
 | [**Home Assistant App (Add-on)**](https://github.com/sphings79/amberchest-ha-app) | Runs AmberChest on Home Assistant OS, in the sidebar through ingress. The comfortable way to get the instance this integration needs |
 
 ## Entities you get
@@ -282,12 +282,12 @@ ruff format . && ruff check . && pytest
 cd frontend && npm run build
 ```
 
-The built card is checked in, because HACS does not run a build.
+The built card is checked in, because installing from the repository does not run a build.
 
 ## Licence
 
 MIT — see [LICENSE](LICENSE).
 
 <sub>home assistant mail backup · imap backup sensor · email archive home assistant ·
-amberchest integration · hacs custom integration · imap mailbox monitoring ·
+amberchest integration · marketplace custom integration · hacs custom integration · imap mailbox monitoring ·
 backup status sensor · lovelace card email backup</sub>
